@@ -113,9 +113,7 @@ class Template{
 		{
 			foreach($tabObj->legendas as $campo)
 			{
-				$conteudo .= '
-								<th>' . $campo . '</th>
-								';
+				$conteudo .= '<th>' . $campo . '</th>';
 			}
 		}
 	
@@ -123,12 +121,60 @@ class Template{
 		
 		while($tabLinha = $tabResult->fetch(PDO::FETCH_ASSOC))
 		{
-			
-		}
-			
+			$conteudo .= '
+				<tr>
+				<td>
+				<a href="' . $tabObj->tabela . 'Editar.php?' . $tabObj->chavePrimaria . "=" . $tabLinha[$tabObj->chavePrimaria] . '">
+				<img src= ".. /imagens/editar.png" alt="editar" title="Editar"></a>
+				<a href="' . $tab0bj->tabela . 'Excluir.php?' . $tabObj->chavePrimaria . "=" . $tabLinha[$tabObj->chavePrimaria]. '">
+				<img src="../imagens/excluir.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				';
+
 		
 		
-	}
+		
+		
+		
+			if ($campos) 
+			{
+				
+			// Varrendo a lista de Campos enviada
+			foreach ($campos as $campo) 
+				{
+								// Montando valores com
+								// as informaeées do array com Campos
+								$conteudo .= '<td>' . $tabLinha[$campo] . '</td>';
+			
+				}
+			
+			} 
+			
+			else 
+			{
+				// Nao foi enviada lista de Campos
+				// Varrendo as Campos do registro
+				foreach ($tabLinha as $campo => $valor) 
+				{
+					// Montando Valores
+					$conteudo .= '<td>' . $valor . '</td>';
+				}
+			
+			}
+			
+			// Finalizando Zinha
+			$conteudo .= '</tr>';
+			
+		} // finaliza while
+			
+			// Finalizando tabela
+			$conteudo .= '</table>';
+			
+			return $conteudo;
+	
+		
+		
+}
 	
 	
 	
