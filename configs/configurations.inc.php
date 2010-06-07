@@ -1,11 +1,22 @@
 <?php
+/*
+ * Path's
+ */
+
+define('SITE_PATH', '/var/www/workspace/Livraria');
+define('TEMPLATES_DIR', 'templates/');
 
 /*
  * Logs Config
  */
 
 define('LOG_FILE', '../logs/error.log');
-$databaseDebug = false;
+
+/*
+ * DEBUG
+ */
+$debug = true;
+$databaseDebug = true;
 $DEBUG = array();
 
 /*

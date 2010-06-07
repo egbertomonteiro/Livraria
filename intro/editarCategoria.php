@@ -28,14 +28,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id']))
 	
 	$registro = $tabCategoria->listartPorChave($id);
 	
-	echo ''
+	echo '
+	<form action="editarCategoria.php" method="post" >';
 		
 	
-	/*
-	 *    PAGINA 188!!!
-	 * 
-	 * 
-	 */
+foreach($registro as $campo => $valor)
+{
+	echo $tabCategoria->legendas[$campo] . ': ' .
+		 '<input type="text" name="'. $campo .'"' . 
+		 'value="'. $valor .'" /></br>' . "\n";
+}
 	
+echo '<button type="submit">Salvar</button> </form>';
+
 
 ?>
