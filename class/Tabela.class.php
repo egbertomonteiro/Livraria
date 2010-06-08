@@ -26,7 +26,7 @@ abstract class Tabela
 		{
 				self::$conexao = new PDO($dsn,	
 											 $dbconfig['user'],
-											 $dbconfig['password'], 
+											 $dbconfig['password'],
 											 $dbconfig['options']);
 		}
 		
@@ -48,8 +48,9 @@ abstract class Tabela
 	
 	public function query($sql)
 	{
+		//print_r($sql);
 		global $databaseDebug;
-
+		
 		if($databaseDebug){
 			$GLOBALS['databaseDebug'] .= "$sql";
 		}
@@ -60,12 +61,15 @@ abstract class Tabela
 			if($type == 'SELECT')
 			{	
 				$resultado = self::$conexao->query($sql);
+				//print_r($resultado);
 			}
 			else
 			{
-				$resultado = self::$conexao->exec($sql);				
+				$resultado = self::$conexao->exec($sql);
+				//print_r($resultado);				
 			}
 			
+			return $resultado;
 		}
 		
 		catch (PDOException $e)
@@ -79,8 +83,18 @@ abstract class Tabela
 		
 	}
 	
+	public function listar($filtro=null, $ordem=null, $limite=null){
+		$sql = "SELECT * FROM " . $this->tabela;
+		if(!is_null($filtro)){ $sql .=" WHERE $filtro";}
+		if(!is_null($ordem)){ $sql .=" ORDER BY $ordem";}
+		if(!is_null($limite)){ $sql .=" LIMIT $limite";}
+		//	print_r($sql);
+		return $this->query($sql);
 	
-	function listar ($filtro = null, $ordem = null, $limite = null)
+	}
+	
+	
+/*	public function listar ($filtro = null, $ordem = null, $limite = null)
 	{
 		$sql = "SELECT * FROM" . $this->tabela;
 		
@@ -103,27 +117,31 @@ abstract class Tabela
 		
 	}
 	
+*/
 	function listartPorChave($chave)
 	{
 		$resultado = $this->listar($this->chavePrimaria . " = '$chave'");
+		//var_dump($resultado);
 		return $resultado->fetchObject();
 	}
 	
 	
-	function excluir($chave)
+	public function excluir($chave)
 	{
-		$sql = "DELETE FROM" . $this->tabela . "WHERE" . $this->chavePrimaria . "= '$chave'";
+		$sql = "DELETE FROM " . $this->tabela . " WHERE " . $this->chavePrimaria . "= '$chave'";
+		//print_r($sql);
 		return $this->query($sql);	
 	}
 	
-	function inserir($dados)
+	public function inserir($dados)
 	{
+		//print_r($dados);
 		try 
 		{
 			if(!is_array($dados))
 			{
-				throw new Exception('Esperado um Array para Inserir Registro!');	
-			}
+				throw new Exception('Esperado um Array para Inserir Registro');	
+			};// ta no livro assim
 			
 		}	
 		
@@ -135,29 +153,31 @@ abstract class Tabela
 			
 		}
 		
-		$sql = "INSERT INTO" . $this->tabela . "(";
+		$sql = "INSERT INTO " . $this->tabela . " (";
+		
+		//echo $this->tabela;
 
 		foreach ($dados as $campo => $valor)
 		{
 			$campos .= "$campo,";
-			$valores .= "$valor,";
+			$valores .= "'$valor',";
 		}
 		
 		$sql .= substr($campos, 0, -1) . ") VALUES (";
 		$sql .= substr($valores, 0, -1) . ")";
-		
-		return $this->query($sql);
+		//print_r($sql);
+		 return $this->query($sql);
 		
 	}
 	
 	
-	function atualizar($chave, $dados)
+	public function atualizar($chave, $dados)
 	{
 		try 
 		{
 			if(!is_array($dados))
 			{
-				throw new Exception('Esperado um Array para Inserir Registro!');	
+				throw new Exception('Esperado um Array para Inserir Registro');	
 			}
 			
 		}	
@@ -170,16 +190,20 @@ abstract class Tabela
 			
 		}
 		
-		$sql = "UPDATE" . $this->tabela . "SET";
+		$sql = "UPDATE " . $this->tabela . " SET ";
 		
 		foreach ($dados as $campo => $valor)
 		{
-			 	$sql .= "$campo = '$valor',";
+			
+			 	$sql .= "$campo='$valor',";
+			
 		}
 
 		$sql = substr($sql,0,-1);
 		
-		$sql .= "WHERE" . $this->chavePrimaria . "= '$chave'";
+		$sql .= " WHERE " . $this->chavePrimaria . " = '$chave'";
+		
+		//print_r($sql);
 		
 		return $this->query($sql);
 	}

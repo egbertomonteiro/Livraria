@@ -104,7 +104,7 @@ class Template{
 					';
 		if($campos)
 		{
-			foreach ($campos as $campos)
+			foreach ($campos as $campo)
 			{
 				$conteudo .= '<th>' . $tabObj->legendas[$campo] . '</th>'; 
 			}
@@ -124,9 +124,9 @@ class Template{
 			$conteudo .= '
 				<tr>
 				<td>
-				<a href="' . $tabObj->tabela . 'Editar.php?' . $tabObj->chavePrimaria . "=" . $tabLinha[$tabObj->chavePrimaria] . '">
+				<a href="' . 'editar' . ucfirst($tabObj->tabela) . '.php?' . $tabObj->chavePrimaria . "=" . $tabLinha[$tabObj->chavePrimaria] . '">
 				<img src= ".. /imagens/editar.png" alt="editar" title="Editar"></a>
-				<a href="' . $tab0bj->tabela . 'Excluir.php?' . $tabObj->chavePrimaria . "=" . $tabLinha[$tabObj->chavePrimaria]. '">
+				<a href="' . 'excluir' . ucfirst($tabObj->tabela) . '.php?' . $tabObj->chavePrimaria . "=" . $tabLinha[$tabObj->chavePrimaria] . '">	
 				<img src="../imagens/excluir.png" alt="excluir" title="E×cluir"></a>
 				</td>
 				';

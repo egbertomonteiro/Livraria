@@ -2,13 +2,13 @@
 
 include_once('../configs/configurations.inc.php');
 
-$tabCategoria = new Categoria();
+$tabLivro = new Livro();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id']))
 {
 	$id = $_POST['id'];
 	
-	if($tabCategoria->atualizar($id, $_POST))
+	if($tabLivro->atualizar($id, $_POST))
 	{
 		echo "<h2> Registro Salvo </h2>";
 	}
@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id']))
 
 	echo '<a href="index.php"> Voltar </a>';
 	
-	$registro = $tabCategoria->listartPorChave($id);
+	$registro = $tabLivro->listartPorChave($id);
 	
 	//RETIRANDO ID do array
 	//PQ ID não eh editavel
@@ -38,10 +38,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id']))
 	echo '
 	<form action="editarCategoria.php" method="post" >';
 		
+
 	
 foreach($registro as $campo => $valor)
 {
-	echo $tabCategoria->legendas[$campo] . ': ' .
+	echo $tabLivro->legendas[$campo] . ': ' .
 		 '<input type="text" name="'. $campo .'"' . 
 		 'value="'. $valor .'" /></br>' . "\n";
 }
