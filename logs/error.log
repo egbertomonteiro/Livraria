@@ -89,3 +89,39 @@ Arquivo arquivo.txt inexistente<br>Arquivo arquivo.txt inexistente<br>08-06-2010
 #0 /var/www/workspace/Livraria/class/Tabela.class.php(30): PDO->__construct('', 'livraria_user', '123456', Array)
 #1 /var/www/workspace/Livraria/intro/index2.php(8): Tabela->__construct()
 #2 {main}
+08-06-2010 16:29:46-Erro: invalid data source name
+#0 /var/www/workspace/Livraria/class/Tabela.class.php(30): PDO->__construct('', 'livraria_user', '123456', Array)
+#1 /var/www/workspace/Livraria/intro/index.php(6): Tabela->__construct()
+#2 {main}
+08-06-2010 16:30:31-Erro: invalid data source name
+#0 /var/www/workspace/Livraria/class/Tabela.class.php(30): PDO->__construct('', 'livraria_user', '123456', Array)
+#1 /var/www/workspace/Livraria/intro/index.php(6): Tabela->__construct()
+#2 {main}
+08-06-2010 16:30:32-Erro: invalid data source name
+#0 /var/www/workspace/Livraria/class/Tabela.class.php(30): PDO->__construct('', 'livraria_user', '123456', Array)
+#1 /var/www/workspace/Livraria/intro/index.php(6): Tabela->__construct()
+#2 {main}
+08-06-2010 16:30:32-Erro: invalid data source name
+#0 /var/www/workspace/Livraria/class/Tabela.class.php(30): PDO->__construct('', 'livraria_user', '123456', Array)
+#1 /var/www/workspace/Livraria/intro/index.php(6): Tabela->__construct()
+#2 {main}
+08-06-2010 16:30:33-Erro: invalid data source name
+#0 /var/www/workspace/Livraria/class/Tabela.class.php(30): PDO->__construct('', 'livraria_user', '123456', Array)
+#1 /var/www/workspace/Livraria/intro/index.php(6): Tabela->__construct()
+#2 {main}
+08-06-2010 16:30:50-Erro: invalid data source name
+#0 /var/www/workspace/Livraria/class/Tabela.class.php(30): PDO->__construct('', 'livraria_user', '123456', Array)
+#1 /var/www/workspace/Livraria/intro/index.php(6): Tabela->__construct()
+#2 {main}
+08-06-2010 16:31:30-Erro: invalid data source name
+#0 /var/www/workspace/Livraria/class/Tabela.class.php(30): PDO->__construct('', 'livraria_user', '123456', Array)
+#1 /var/www/workspace/Livraria/intro/index2.php(8): Tabela->__construct()
+#2 {main}
+08-06-2010 16:31:40-Erro: invalid data source name
+#0 /var/www/workspace/Livraria/class/Tabela.class.php(30): PDO->__construct('', 'livraria_user', '123456', Array)
+#1 /var/www/workspace/Livraria/intro/index2.php(8): Tabela->__construct()
+#2 {main}
+08-06-2010 16:31:54-Erro: invalid data source name
+#0 /var/www/workspace/Livraria/class/Tabela.class.php(30): PDO->__construct('', 'livraria_user', '123456', Array)
+#1 /var/www/workspace/Livraria/intro/index2.php(8): Tabela->__construct()
+#2 {main}

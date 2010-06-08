@@ -4,7 +4,7 @@ include_once('../configs/configurations.inc.php');
 
 $tabCategoria = new Categoria();
 
-if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id']))
+if($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_POST['id']))
 {
 	$id = $_POST['id'];
 	
@@ -19,7 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id']))
 	}
 	
 }
-	else 
+else 
 	{
 		$id = $_GET['id'];		
 	}
@@ -35,9 +35,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id']))
 	//print_r($registro);
 	
 	
-	echo '
-	<form action="editarCategoria.php" method="post" >';
+	echo '<form action="editarCategoria.php" method="post" >';
 		
+
 	
 foreach($registro as $campo => $valor)
 {
