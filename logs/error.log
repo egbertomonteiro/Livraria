@@ -125,3 +125,11 @@ Arquivo arquivo.txt inexistente<br>Arquivo arquivo.txt inexistente<br>08-06-2010
 #0 /var/www/workspace/Livraria/class/Tabela.class.php(30): PDO->__construct('', 'livraria_user', '123456', Array)
 #1 /var/www/workspace/Livraria/intro/index2.php(8): Tabela->__construct()
 #2 {main}
+08-06-2010 16:50:33-Erro: invalid data source name
+#0 /var/www/workspace/Livraria/class/Tabela.class.php(30): PDO->__construct('', 'livraria_user', '123456', Array)
+#1 /var/www/workspace/Livraria/intro/index2.php(8): Tabela->__construct()
+#2 {main}
+08-06-2010 17:06:50-Erro: invalid data source name
+#0 /var/www/workspace/Livraria/class/Tabela.class.php(30): PDO->__construct('', 'livraria_user', '123456', Array)
+#1 /var/www/workspace/Livraria/intro/index2.php(8): Tabela->__construct()
+#2 {main}

@@ -4,6 +4,12 @@ include_once('../configs/configurations.inc.php');
 
 $tabCategoria = new Categoria();
 
+
+//Gambi para nao dar pau no foreach =D
+if(isset($_POST['id']) OR isset($_GET['id']))
+{
+
+
 if($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_POST['id']))
 {
 	$id = $_POST['id'];
@@ -47,6 +53,13 @@ foreach($registro as $campo => $valor)
 }
 	
 echo '<button type="submit">Salvar</button> </form>';
+}
 
+else
+
+{
+		echo '<a href="index.php"> Voltar </a>';
+	
+}
 
 ?>

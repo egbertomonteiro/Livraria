@@ -7,7 +7,7 @@ echo '<h2> Listar Categoria </h2>';
 $tabCategoria = new Categoria();
 
 $livros = $tabCategoria->listar();
-$livroscatid = $tabCategoria->listarPorCatID(1);
+//$livroscatid = $tabCategoria->listarPorCatID(1);
 
 $campos = array('id','isbn','autor','titulo');
 

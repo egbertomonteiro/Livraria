@@ -3,7 +3,7 @@ include_once('../configs/configurations.inc.php');
 
 $tabCategoria = new Categoria();
 
-if($_GET['id'] AND $_GET['ok'])
+if(isset($_GET['id']) AND isset($_GET['ok']))
 {
 	//print_r($_GET['id']);
 	//print_r($_GET['ok']);
