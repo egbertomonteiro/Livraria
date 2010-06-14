@@ -133,3 +133,23 @@ Arquivo arquivo.txt inexistente<br>Arquivo arquivo.txt inexistente<br>08-06-2010
 #0 /var/www/workspace/Livraria/class/Tabela.class.php(30): PDO->__construct('', 'livraria_user', '123456', Array)
 #1 /var/www/workspace/Livraria/intro/index2.php(8): Tabela->__construct()
 #2 {main}
+12-06-2010 09:49:54-Erro: SQLSTATE[28000] [1045] Access denied for user 'livraria_user'@'localhost' (using password: YES)
+#0 /var/www/Livraria/class/Tabela.class.php(30): PDO->__construct('mysql:host=loca...', 'livraria_user', '123456', Array)
+#1 /var/www/Livraria/intro/index.php(5): Tabela->__construct()
+#2 {main}
+12-06-2010 11:40:16-Erro: could not find driver
+#0 /var/www/Livraria/class/Tabela.class.php(47): PDO->__construct('TYPE:host=local...', 'livraria_user', '123456')
+#1 /var/www/Livraria/intro/index.php(5): Tabela->__construct()
+#2 {main}
+12-06-2010 11:40:35-Erro: could not find driver
+#0 /var/www/Livraria/class/Tabela.class.php(47): PDO->__construct('TYPE:host=local...', 'livraria_user', '123456')
+#1 /var/www/Livraria/intro/index.php(5): Tabela->__construct()
+#2 {main}
+12-06-2010 11:40:35-Erro: could not find driver
+#0 /var/www/Livraria/class/Tabela.class.php(47): PDO->__construct('TYPE:host=local...', 'livraria_user', '123456')
+#1 /var/www/Livraria/intro/index.php(5): Tabela->__construct()
+#2 {main}
+12-06-2010 11:41:23-Erro: SQLSTATE[42000] [1044] Access denied for user 'livraria_user'@'localhost' to database 'DBNAME'
+#0 /var/www/Livraria/class/Tabela.class.php(47): PDO->__construct('mysql:host=loca...', 'livraria_user', '123456')
+#1 /var/www/Livraria/intro/index.php(5): Tabela->__construct()
+#2 {main}

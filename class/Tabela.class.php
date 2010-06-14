@@ -17,7 +17,10 @@ abstract class Tabela
 	{
 		global $dbconfig;
 		
-		if(!isset(self::$conexao))
+		/*
+		 * ANTIGO METODO ANTES DO XML!!!
+		 * PEGAVA DIRETO DO CONFIGURATIONS.INC.PHP 
+		 * if(!isset(self::$conexao))
 		{
 			$dsn = "{$dbconfig['driver']}:host={$dbconfig['server']};dbname={$dbconfig['database']}";
 		}
@@ -29,6 +32,23 @@ abstract class Tabela
 											 $dbconfig['password'],
 											 $dbconfig['options']);
 		}
+		*/
+		
+		
+		$xml = new Xml(_XML_DB_);
+		$xml->setConstant();
+		if(!isset(self::$conexao)) 
+		{
+			$dsn = $xml->dsn();
+		}
+				try {
+			self::$conexao = new PDO($dsn,
+			USER,
+			PASSWORD);
+		
+		
+			}
+		
 		
 		catch (PDOException $e)
 		{

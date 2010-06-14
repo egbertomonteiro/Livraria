@@ -3,8 +3,9 @@
  * Path's
  */
 
-define('SITE_PATH', '/var/www/workspace/Livraria');
-define('TEMPLATES_DIR', 'templates/');
+define('SITE_PATH', '/var/www/workspace/Livraria/');
+define('TEMPLATES_DIR', 'template/');
+define('_XML_DB_','../configs/configurations.xml');
 
 /*
  * Logs Config
@@ -40,11 +41,17 @@ $dbconfig['options'] = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
 				require_once '../class/' . "{$ClassName}" . '.class.php';
 				return true;
 				
-		}
-		
-		// Se a classe não existir
-		// Vai dar Pau!
-		return false;
+			}
+			
+			if(is_file('../smarty/libs/' . "{$ClassName}" . '.class.php'))
+			{
+				require_once '../smarty/libs/' . "{$ClassName}" . '.class.php';
+				return true;
+				
+			}
+			// Se a classe não existir
+			// Vai dar Pau!
+			return false;
 		
 		}
 		

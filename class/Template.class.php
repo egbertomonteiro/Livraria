@@ -3,12 +3,81 @@
 class Template{
 	
 	private $code;
+	
+	static public function enviareEmail($body)
+	{
+		
+	
+try {
+	$mail = new PHPMailer(true); //New instance, with exceptions enabled
+
+	$body             = file_get_contents($body);
+
+	$body             = preg_replace('/\\\\/','', $body); //Strip backslashes
+
+	$mail->IsSMTP();                           // tell the class to use SMTP
+	$mail->SMTPAuth   = true;                  // enable SMTP authentication
+	$mail->Port       = 587;                    // set the SMTP server port
+	$mail->Host       = "smtp.googlemail.com"; // SMTP server
+	$mail->Username   = "";     // SMTP server username
+	$mail->Password   = "";            // SMTP server password
+
+	$mail->IsSendmail();  // tell the class to use Sendmail
+
+	$mail->AddReplyTo("","Egberto Monteiro");
+
+	$mail->From       = "";
+	$mail->FromName   = "Egberto Monteiro";
+
+	$to = "";
+
+	$mail->AddAddress($to);
+
+	$mail->Subject  = "First PHPMailer Message";
+
+	$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; // optional, comment out and test
+	$mail->WordWrap   = 80; // set word wrap
+
+	$mail->MsgHTML($body);
+
+	$mail->IsHTML(true); // send as HTML
+
+	$mail->Send();
+	echo 'Message has been sent.';
+	} catch (phpmailerException $e) {
+	echo $e->errorMessage();
+	}
+}
+
+	static private function verCarrinhoByID()
+	{
+		try
+		{
+			
+			
+			
+		}
+		catch(Exception $e)
+		{
+			$erro = '<h1> Erro: </h1> <pre>' . $e->getMessage() . "\n" .
+								$e->getTraceAsString() . '</pre>' . "\n";
+
+			error_log(date('d-m-Y H:i:s') . " - " . $erro, 3, 'LOG_FILE');
+			//"exit" mostrando $erro
+			die($erro);
+		}
+		
+		
+	}
+	
+	
+	
 
 	static private function pegarArquivo($arquivo, $parametros=array())
 	{
 		try
 		{
-			$dir = 'SITE_PATH' . 'TEMPLATE_DIR';  
+			$dir = SITE_PATH . TEMPLATES_DIR;  
 			
 			$arquivo = str_replace(
 									array('\\','/','..','<','>'),
@@ -16,14 +85,18 @@ class Template{
 									$arquivo							
 									
 									);
+		
 			// troquei file_exists por
 			// is_file
 			// file_exists pode pegar um diretorio tb! =S
 			//php.net: 
-			// Returns TRUE if the file or directory specified by filename exists; FALSE otherwise.									
+			// Returns TRUE if the file or directory specified by filename exists; FALSE otherwise.
+			
+									
 			if(!is_file($dir.$arquivo))
 			{
-					throw new Exception("Template $arquivo não existe");
+	
+					throw new Exception("Template $dir$arquivo não existe");
 			}
 			else
 			{
@@ -77,7 +150,7 @@ class Template{
 	
 	static public function gerarCabecalhoSite()
 	{
-		$arquivo = 'gerarCabecalho.html';
+		$arquivo = 'cabecalhoSite.html';
 		$parametros = array('%CARRINHO_TOTAL_ITENS%'=>$_SESSION['itens'],
 							'%CARRINHO_VALOR_TOTAL%'=>number_format($_SESSION['total'], 2, ',', '.')
 		
@@ -130,10 +203,6 @@ class Template{
 				<img src="../imagens/excluir.png" alt="excluir" title="E×cluir"></a>
 				</td>
 				';
-
-		
-		
-		
 		
 		
 			if ($campos) 

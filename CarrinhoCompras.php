@@ -40,8 +40,4 @@ foreach($carrinho->getFrom() as $pid=>$qtde )
 }
 
 
-
-
-
-
 ?>
