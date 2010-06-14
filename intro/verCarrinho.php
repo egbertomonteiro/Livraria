@@ -1,6 +1,7 @@
 <?php
 
 include '../configs/configurations.inc.php';
+//require_once(SMARTY_DIR . 'Smarty.class.php');
 
 session_start();
 
@@ -12,6 +13,7 @@ session_start();
 
 $carrinhoXYZ = new Carrinho();
 $tabLivro = new Livro();
+//$smarty = new Smarty();
 
 $table = <<<FIM
 <table border='1' align='center'>
@@ -25,17 +27,30 @@ FIM;
 #echo $table;
 foreach($_SESSION['produtos'] as $pid=>$qtde)
 {
-	if($pid!=''){
+	if($pid!='')
+	{
 
 		$camposDoLivro = $tabLivro->listartPorChave($pid);
-			
-			
-			echo $qtde. "-" . $camposDoLivro->titulo . $camposDoLivro->preco; 
-			echo $qtde."-"."<br/>";
+					
+			echo 'Quantidade: ' . $qtde . ' Titulo: ' . $camposDoLivro->titulo . ' Preço: ' . $camposDoLivro->preco . "<br/>"; 
+			//echo $camposDoLivro->titulo . "<br/>";
+			//echo 'Quantidade:' . $qtde . ' ' . "<br/>";
 			
 			//echo $
 			
+		
+			//$smarty->template_dir = '/var/www/workspace/Livraria/smarty/livraria/templates1/';
 			
+			//print_r($smarty);
+			
+			
+			
+			/*
+			 * 
+			 */
+
+			
+
 			
 			//	echo $tabLivro->legendas[$pid] . ': ' .
 			//	 '<input type="text" name="'. $qtde .'"' . 

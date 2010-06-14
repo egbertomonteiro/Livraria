@@ -5,7 +5,12 @@
 
 define('SITE_PATH', '/var/www/workspace/Livraria/');
 define('TEMPLATES_DIR', 'template/');
+define('IMAGES_DIR', 'images/');
 define('_XML_DB_','../configs/configurations.xml');
+define('SMARTY_DIR', '/var/www/workspace/Livraria/smarty/libs/');
+define('SMARTY_CACHE_DIR', '/var/www/workspace/Livraria/smarty/livraria/cache');
+
+
 
 /*
  * Logs Config
@@ -33,6 +38,7 @@ $dbconfig['options'] = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
 
 /*
  * 	AUTOLOAD
+		
  */
 		function __autoload($ClassName)
 		{
@@ -42,19 +48,10 @@ $dbconfig['options'] = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
 				return true;
 				
 			}
-			
-			if(is_file('../smarty/libs/' . "{$ClassName}" . '.class.php'))
-			{
-				require_once '../smarty/libs/' . "{$ClassName}" . '.class.php';
-				return true;
-				
-			}
-			// Se a classe não existir
-			// Vai dar Pau!
+
 			return false;
 		
 		}
-		
 		
 		
 			

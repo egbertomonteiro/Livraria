@@ -1,14 +1,11 @@
 <?php
 
 // load Smarty library
-require_once('../configs/configurations.inc.php');
+require_once('../class/teste.class.php');
 
-$smarty = new Smarty();
+$smarty = new Smarty_Livraria();
 
-$smarty->template_dir = '/var/www/workspace/Livraria/smarty/livraria/templates/';
-$smarty->compile_dir = '/var/www/workspace/Livraria/smarty/livraria/templates_c/';
-$smarty->config_dir = '/var/www/workspace/Livraria/smarty/livraria/configs/';
-$smarty->cache_dir = '/var/www/workspace/Livraria/smarty/livraria/cache/';
+       $smart->caching = true;
 
 $smarty->assign('name','Ned');
 

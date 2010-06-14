@@ -8,6 +8,10 @@ $tabCategoria = new Categoria;
 //Template::enviareEmail('lala.txt');
 
 
+Seguranca::estaConectado();
+
+Template::gerarAdmin('');
+
 
 $categorias = $tabCategoria->listar();
 

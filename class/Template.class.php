@@ -49,28 +49,140 @@ try {
 	}
 }
 
-	static private function verCarrinhoByID()
-	{
-		try
-		{
-			
-			
-			
-		}
-		catch(Exception $e)
-		{
-			$erro = '<h1> Erro: </h1> <pre>' . $e->getMessage() . "\n" .
-								$e->getTraceAsString() . '</pre>' . "\n";
 
-			error_log(date('d-m-Y H:i:s') . " - " . $erro, 3, 'LOG_FILE');
-			//"exit" mostrando $erro
-			die($erro);
+	
+
+
+	static function gerarMenuAdmin()
+	{
+		$conteudo = '
+					<div id="menucategorias>
+					<h3>' . $_SESSION['login'] . '(' . $_SESSION['perfil'] . ') </h3>
+					<h4>' . $_SESSION['nome'] . '</h4>
+					<h4>' . $_SESSION['horalogin'] . '</h4>
+					<h4><a href="logout.php">Sair</a></h4>
+					
+					<h1>Administração</h1>
+						<ul>
+							<li><a href="listarLivro.php">Listar Livros</a></li>
+							<li><a href="inserirLivro.php">Inserir Livros</a></li>
+							<li><a href="listarCategoria.php">Listar Categoria</a></li>
+							<li><a href="inserirCategoria.php">Inserir Categoria</a></li>
+							<li><a href="listarPedido.php">Listar Pedido</a></li>
+						</ul>
+					';
+		
+		if(Seguranca::temPerfil('admin'))
+		{
+			$conteudo .= '	
+							<h1>Sistema</h1>
+							<ul>
+								<li><a href="listarUsuario.php">Listar Usuarios</a></li>
+								<li><a href="inserirUsuario.php">Inserir Usuario</a></li>
+							</ul>
+			
+							';
 		}
 		
+				$conteudo .= '</div>';
+				return $conteudo;
 		
 	}
 	
+	static function gerarListaCategorias()
+	{
+		$tabCategoria = new Categoria();
+		$categorias = $tabCategoria->listarAlfabetico();
+		
+		$conteudo = '
+					<div id="menucategorias">
+					<h1>Categorias</h1>
+					<ul>'."\n";
+
+		while($cat = $categorias->fetchObject())
+		{
+			$conteudo .= '
+					<li>
+						<a href="livrosCategoria.php?catid=' . $cat->id . '">'. $cat->descricao . '</a>
+					</li>' . "\n";
+		}						
+									
+		$conteudo .= '</ul></div>';	
+		return $conteudo;
+	 }
+	 
+	 static public function gerarAdmin($conteudo='')
+	 {
+	 	self::gerarCabecalhoSite();
+	 	echo self::gerarMenuAdmin();
+	 	echo $conteudo;
+	 	self::gerarRodape();
+	 }
+
+	 static public function gerarSite($conteudo = '')
+	 {
+	 	self::gerarCabecalhoSite();
+	 	echo self::gerarListaCategorias();
+	 	echo $conteudo;
+	 	self::gerarRodape();
+	 }
+	 
+	 static function gerarLivroResumo($objLivro)
+	 {
+	 	//globc
+	 	
+	 	$arquivo = 'livroResumo.html';
+	 	$parametros = array(
+	 	
+	 						'%IMAGEM%'   => IMAGES_DIR . $objLivro->isbn . '.jpeg',
+	 						'%LIVROID%'  => $objLivro->id,
+	 						'%TITULO%'   => $objLivro->titulo,
+	 						'%AUTOR%'    => $objLivro->autor,
+	 						'%PRECO%'	 => number_format($objLivro->preco, 2, ',' , '.'),
+	 						'%SUMARIO%'  => nl2br($objLivro->sumario),	
+	 						
+	 						);
+		
+	 			return self::pegarArquivo($arquivo, $parametros);
+	 }
+	 
+	 
+	static public function gerarLogin($parametros)
+	{
+		$arquivo = 'login.html';
+		return self::pegarArquivo($arquivo, $parametros);
+	}
+	 
 	
+	private static function debug()
+	{
+		global $debug, $DEBUG;
+		
+		if($debug)
+		{
+			$conteudo = '<div id="debug">';
+			
+			foreach($DEBUG as $chave=>$valor)
+			{
+				$conteudo .= "<h1>$chave</h1>\n<pre>$valor</pre>";
+				
+			}
+		
+		$conteudo .= "<h1>SESSÃO</h1> \n<pre>" . print_r($_SESSION,true) . "</pre>";
+		
+		$conteudo .= "<h1>COOKIE</h1> \n <pre>". print_r($_COOKIE,true) . "</pre>";
+		
+		$conteudo .= "<h1>POST</h1> \n <pre>". print_r($_POST,true) . "</pre>";
+		
+		$conteudo .= "<h1>FILES</h1> \n <pre>". print_r($_FILES,true) . "</pre>";
+		
+		$conteudo .= '</div>';
+			
+		}
+		
+		return $conteudo;
+		
+	}
 	
 
 	static private function pegarArquivo($arquivo, $parametros=array())
@@ -125,7 +237,7 @@ try {
 			$erro = '<h1> Erro: </h1> <pre>' . $e->getMessage() . "\n" .
 					$e->getTraceAsString() . '</pre>' . "\n";
 
-			error_log(date('d-m-Y H:i:s') . " - " . $erro, 3, 'LOG_FILE');
+			error_log(date('d-m-Y H:i:s') . " - " . $erro, 3, LOG_FILE);
 			
 			//"exit" mostrando $erro
 			die($erro);
