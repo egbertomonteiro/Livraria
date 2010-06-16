@@ -50,26 +50,79 @@ try {
 }
 
 
+/*
+ * 
+ *  <dl>
+	<dt> <a href="#livros"> Livros </a></dt>
+	<dd>
+	<ul>
+		<li><a href="listarLivros.php" title="Listar Livros" >Listar Livros</a></li>
+		<li><a href="inserirLivro.php" title="dfsds">Inserir Livro</a></li>
+		<li><a href="listarCategorias.php" title="Listar Categorias">Listar Categorias</a></li>
+		<li><a href="inserirCategoria.php" title="Inserir Categorias">Inserir Categorias</a></li>
+		<li><a href="listarPedido.php" title="Listar Pedidos">Listar Pedidos</a></li>
+	</ul>
+	</dd>
+
+	<dt><a href="/discuss/"> Usuarios </a></dt>
+	
+	<dd>	
+	<ul>
+		<li><a href="/discuss/"> Listar Usuarios </a></li>
+		<li><a href="/tutoriais/"> Inserir Usuarios </a></li>
+		<li><a href="/demos/">Demo</a></li>
+	</ul>
+	</dd>
+	
+	<dt><a href="/dev/">OTRO MENUZINHO</a></dt>
+	
+	<dd>
+	<ul>
+		<li><a href="/src/">Por ISBN</a></li>
+		<li><a href="/dev/bugs/">Bug Tracking</a></li>
+		<li><a href="/dev/recent/">Recent Changes</a></li>
+	</ul>
+	</dd>
+
+ </dl>
+ * 
+ * 
+ * 
+ */
+
+
 	
 
 
 	static function gerarMenuAdmin()
 	{
 		$conteudo = '
-					<div id="menucategorias>
-					<h3>' . $_SESSION['login'] . '(' . $_SESSION['perfil'] . ') </h3>
-					<h4>' . $_SESSION['nome'] . '</h4>
-					<h4>' . $_SESSION['horalogin'] . '</h4>
-					<h4><a href="logout.php">Sair</a></h4>
-					
-					<h1>Administração</h1>
-						<ul>
-							<li><a href="listarLivro.php">Listar Livros</a></li>
-							<li><a href="inserirLivro.php">Inserir Livros</a></li>
-							<li><a href="listarCategoria.php">Listar Categoria</a></li>
-							<li><a href="inserirCategoria.php">Inserir Categoria</a></li>
-							<li><a href="listarPedido.php">Listar Pedido</a></li>
-						</ul>
+	
+					<div id="menucategorias">
+						<dl>
+							<dt> <a href="#livros"> Livros </a></dt>
+							<dd>
+								<ul>
+									<li><a href="listarLivros.php" title="Listar Livros" >Listar Livros</a></li>
+									<li><a href="inserirLivro.php" title="Inserir Livros">Inserir Livro</a></li>
+								</ul>
+							</dd>	
+							<dt> <a href="#categorias"> Categorias </a></dt>
+							<dd>
+								<ul>
+									<li><a href="listarCategorias.php" title="Listar Categorias">Listar Categorias</a></li>
+									<li><a href="inserirCategoria.php" title="Inserir Categorias">Inserir Categorias</a></li>
+								</ul>						
+							</dd>
+							
+							<dt> <a href="#pedidos"> Pedidos </a></dt>
+							<dd>
+								<ul>						
+									<li><a href="listarPedido.php" title="Listar Pedidos">Listar Pedidos</a></li>
+								</ul>						
+							</dd>
+						</dl>
+					</div>
 					';
 		
 		if(Seguranca::temPerfil('admin'))
@@ -103,7 +156,7 @@ try {
 		{
 			$conteudo .= '
 					<li>
-						<a href="livrosCategoria.php?catid=' . $cat->id . '">'. $cat->descricao . '</a>
+						<a href="livrosCategorias.php?catid=' . $cat->id . '">'. $cat->descricao . '</a>
 					</li>' . "\n";
 		}						
 									
@@ -263,10 +316,9 @@ try {
 	static public function gerarCabecalhoSite()
 	{
 		$arquivo = 'cabecalhoSite.html';
-		$parametros = array('%CARRINHO_TOTAL_ITENS%'=>$_SESSION['itens'],
-							'%CARRINHO_VALOR_TOTAL%'=>number_format($_SESSION['total'], 2, ',', '.')
-		
-							);
+					$parametros = array('%CARRINHO_TOTAL_ITENS%'=>$_SESSION['produtos'],
+							'%CARRINHO_VALOR_TOTAL%'=>number_format($_SESSION['total'], 2, ',', '.'));
+	
 		self::exibirArquivo($arquivo,$parametros);
 	}
 	

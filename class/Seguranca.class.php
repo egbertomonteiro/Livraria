@@ -2,14 +2,27 @@
 
 class Seguranca
 {
+
+	
+	
 	static public function autenticar($usuario, $senha)
 	{
+		$usuario = trim($usuario);
+		$senha = trim($senha);
+		
+		$usuario = filter_var($usuario, FILTER_SANITIZE_STRING);
+		$senha = filter_var($senha, FILTER_SANITIZE_STRING);							
+		
 			$tabUsuario = new Usuario;
-			$filtro = "$login = '" . $_POST['login'] . "' AND senha = md5('" . $_POST['senha'] . "')";
+			
+			$filtro = "username = '" . $usuario . "' AND password = sha1('" . $senha . "')";
 			$usuario = $tabUsuario->listar($filtro); 
+		
+			
 			
 			if($usuario AND $usuario->rowCount())
 			{
+
 				session_start();
 				
 				$usuarioLogin = $usuario->fetchObject();
@@ -25,6 +38,7 @@ class Seguranca
 			
 			else
 			{
+
 				session_start();
 				session_destroy();
 				

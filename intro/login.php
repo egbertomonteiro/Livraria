@@ -7,7 +7,7 @@ $parametros = array('%ERRO%' => '', '%LOGIN%' => '');
 if($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_POST['login']))
 {
 	if(Seguranca::autenticar($_POST['login'], $_POST['senha']))
-	{
+	{		
 		header('Location:index.php');
 	}
 	
@@ -21,6 +21,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_POST['login']))
 	}
 	
 }
+
 
 echo Template::gerarCabecalhoAdmin();
 echo Template::gerarLogin($parametros);

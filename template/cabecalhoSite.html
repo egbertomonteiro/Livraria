@@ -3,6 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css"  href="../css/style.css" />
+	<script src="../js/jquery.js"></script>
+	<script>
+	$(document).ready(function(){
+		$("dd:not(:first)").hide();
+		$("dt a").click(function(){
+			$("dd:visible").slideUp("slow");
+			$(this).parent().next().slideDown("slow");
+			return false;
+		});
+	
+	});
+	</script>
+
+
+
+
 <title>Livraria do Tux</title>
 </head>
 <body>
@@ -10,12 +26,14 @@
 <div id="pagina">
 		
 		<div id="cabecalho">
+					<div id="userinform">
+					Login: %SESSIONLOGIN%  Perfil: %SESSIONPERFIL%  Bem Vindo: %SESSIONNOME% Logado Desde: %SESSIONDATALOGADO%
+					</div>
 			
 			<div id="vercarrinho">
 				
-				Total de Itens = %CARRINHO_TOTAL_ITENS% <br/>
-				Valor Total = R$ %CARRINHO_VALOR_TOTAL% <br/>
-				
+				Total de Itens = %CARRINHO_TOTAL_ITENS%  Valor Total = R$ %CARRINHO_VALOR_TOTAL% 
+				<br/>
 				<a href="verCarrinho.php"> Ver Carrinho </a>
 			
 			

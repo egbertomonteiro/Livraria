@@ -5,36 +5,50 @@
 			font-family: Arial; 
 			font-size: 16px; 
 		 }
-	#menuleft dl { 
+	#menucategorias dl { 
 				 	max-width: 200px; 
 				 }
 				 
-	#menuleft dl, #menu dd { 
+	#menucategorias dl, #menu dd { 
 								#background: #F3F0F0; 
 								margin: 0; 
 							}
-	#menuleft dt { 
+	#menucategorias dt { 
 					background: #F3F0F0; 
 					font-size: 18px; 
 					padding: 5px;  
 				 }
 				 
-	#menuleft dt a {
+	#menucategorias dt a {
 					 color: #6D6D6D; 
 					 text-decoration: none;
 					 #text-transform: uppercase 
 				   }
 				   	
-	#menuleft dd a {
+	#menucategorias dd a {
 					 #position: absolute;
 					 text-decoration: none;
 					 color: #000;
 					 margin-left: 0;
 				   }
 					 
-	#menuleft ul { 
+	#menucategorias ul { 
 					#position: relative;
 					list-style: none; 
 					margin-left: 0;
 					padding: 0; 
 				 }
+				 
+	#vercarrinho { 
+					#position: relative;
+					list-style: none; 
+					align: left;
+					margin-left: 60%;
+					#padding-right: 2px; 
+				 }
+	#rodape		{
+					position: relative;
+					margin-top: 20%;
+					text-align: center;
+					
+				}

@@ -157,3 +157,61 @@ Arquivo arquivo.txt inexistente<br>Arquivo arquivo.txt inexistente<br>08-06-2010
 #0 /var/www/workspace/Livraria/class/Template.class.php(153): Template::pegarArquivo('login.html', Array)
 #1 /var/www/workspace/Livraria/intro/login.php(26): Template::gerarLogin(Array)
 #2 {main}</pre>
+entrouentrou11111teste16-06-2010 11:12:57-Erro: invalid data source name
+#0 /var/www/workspace/Livraria/class/Tabela.class.php(47): PDO->__construct('', 'livraria_user', '123456')
+#1 /var/www/workspace/Livraria/intro/index2.php(8): Tabela->__construct()
+#2 {main}
+16-06-2010 12:13:45-Erro: Esperado um Array para Inserir Registro
+#0 /var/www/workspace/Livraria/intro/inserirCategoria.php(14): Tabela->inserir(NULL)
+#1 {main}
+16-06-2010 13:16:32-Erro: Esperado um Array para Inserir Registro
+#0 /var/www/workspace/Livraria/intro/inserirCategoria.php(14): Tabela->inserir(NULL)
+#1 {main}
+16-06-2010 13:47:35-Erro: Esperado um Array para Inserir Registro
+#0 /var/www/workspace/Livraria/intro/inserirCategoria.php(22): Tabela->inserir(false)
+#1 {main}
+16-06-2010 14:27:05-Erro: Esperado um Array para Inserir Registro
+#0 /var/www/workspace/Livraria/intro/editarCategoria.php(28): Tabela->atualizar(NULL, NULL)
+#1 {main}
+16-06-2010 14:28:31-Erro: Esperado um Array para Inserir Registro
+#0 /var/www/workspace/Livraria/intro/editarCategoria.php(30): Tabela->atualizar(NULL, NULL)
+#1 {main}
+16-06-2010 14:29:51-Erro: Esperado um Array para Inserir Registro
+#0 /var/www/workspace/Livraria/intro/editarCategoria.php(31): Tabela->atualizar(NULL, NULL)
+#1 {main}
+16-06-2010 14:31:32-Erro: Esperado um Array para Inserir Registro
+#0 /var/www/workspace/Livraria/intro/editarCategoria.php(22): Tabela->atualizar('1', NULL)
+#1 {main}
+16-06-2010 14:37:37-Erro: Esperado um Array para Inserir Registro
+#0 /var/www/workspace/Livraria/intro/editarCategoria.php(34): Tabela->atualizar('3', NULL)
+#1 {main}
+16-06-2010 17:42:25 - <h1> Erro: </h1> <pre>Esperado um Array para inserir registro
+#0 /var/www/workspace/Livraria/class/Template.class.php(308): Template::pegarArquivo('cabecalhoSite.h...', NULL)
+#1 /var/www/workspace/Livraria/class/Template.class.php(329): Template::exibirArquivo('cabecalhoSite.h...', NULL)
+#2 /var/www/workspace/Livraria/class/Template.class.php(174): Template::gerarCabecalhoSite()
+#3 /var/www/workspace/Livraria/intro/index.php(13): Template::gerarAdmin()
+#4 {main}</pre>
+16-06-2010 17:43:35 - <h1> Erro: </h1> <pre>Esperado um Array para inserir registro
+#0 /var/www/workspace/Livraria/class/Template.class.php(308): Template::pegarArquivo('cabecalhoSite.h...', NULL)
+#1 /var/www/workspace/Livraria/class/Template.class.php(329): Template::exibirArquivo('cabecalhoSite.h...', NULL)
+#2 /var/www/workspace/Livraria/class/Template.class.php(174): Template::gerarCabecalhoSite()
+#3 /var/www/workspace/Livraria/intro/index.php(13): Template::gerarAdmin()
+#4 {main}</pre>
+16-06-2010 17:43:36 - <h1> Erro: </h1> <pre>Esperado um Array para inserir registro
+#0 /var/www/workspace/Livraria/class/Template.class.php(308): Template::pegarArquivo('cabecalhoSite.h...', NULL)
+#1 /var/www/workspace/Livraria/class/Template.class.php(329): Template::exibirArquivo('cabecalhoSite.h...', NULL)
+#2 /var/www/workspace/Livraria/class/Template.class.php(174): Template::gerarCabecalhoSite()
+#3 /var/www/workspace/Livraria/intro/index.php(13): Template::gerarAdmin()
+#4 {main}</pre>
+16-06-2010 17:43:37 - <h1> Erro: </h1> <pre>Esperado um Array para inserir registro
+#0 /var/www/workspace/Livraria/class/Template.class.php(308): Template::pegarArquivo('cabecalhoSite.h...', NULL)
+#1 /var/www/workspace/Livraria/class/Template.class.php(329): Template::exibirArquivo('cabecalhoSite.h...', NULL)
+#2 /var/www/workspace/Livraria/class/Template.class.php(174): Template::gerarCabecalhoSite()
+#3 /var/www/workspace/Livraria/intro/index.php(13): Template::gerarAdmin()
+#4 {main}</pre>
+16-06-2010 17:45:42 - <h1> Erro: </h1> <pre>Esperado um Array para inserir registro
+#0 /var/www/workspace/Livraria/class/Template.class.php(308): Template::pegarArquivo('cabecalhoSite.h...', NULL)
+#1 /var/www/workspace/Livraria/class/Template.class.php(329): Template::exibirArquivo('cabecalhoSite.h...', NULL)
+#2 /var/www/workspace/Livraria/class/Template.class.php(174): Template::gerarCabecalhoSite()
+#3 /var/www/workspace/Livraria/intro/index.php(13): Template::gerarAdmin()
+#4 {main}</pre>

@@ -40,7 +40,7 @@ abstract class Tabela
 		if(!isset(self::$conexao)) 
 		{
 			$dsn = $xml->dsn();
-		}
+		
 				try {
 			self::$conexao = new PDO($dsn,
 			USER,
@@ -58,7 +58,7 @@ abstract class Tabela
 			
 		}
 			
-	
+		}
 	}
 	
 	public function __get($var)
@@ -103,12 +103,17 @@ abstract class Tabela
 		
 	}
 	
-	public function listar($filtro=null, $ordem=null, $limite=null){
+	public function listar($filtro=null, $ordem=null, $limite=null, $debug=null)
+	{
+		
+		
 		$sql = "SELECT * FROM " . $this->tabela;
 		if(!is_null($filtro)){ $sql .=" WHERE $filtro";}
 		if(!is_null($ordem)){ $sql .=" ORDER BY $ordem";}
 		if(!is_null($limite)){ $sql .=" LIMIT $limite";}
-		//	print_r($sql);
+		
+		//print_r($sql);
+		
 		return $this->query($sql);
 	
 	}
@@ -155,9 +160,10 @@ abstract class Tabela
 	
 	public function inserir($dados)
 	{
-		//print_r($dados);
+			
+		print_r($dados);
 		try 
-		{
+		{			
 			if(!is_array($dados))
 			{
 				throw new Exception('Esperado um Array para Inserir Registro');	
@@ -173,6 +179,9 @@ abstract class Tabela
 			
 		}
 		
+
+		
+		
 		$sql = "INSERT INTO " . $this->tabela . " (";
 		
 		//echo $this->tabela;
@@ -181,11 +190,12 @@ abstract class Tabela
 		{
 			$campos .= "$campo,";
 			$valores .= "'$valor',";
+			//print_r($campos. ' ' . $valores);
 		}
 		
 		$sql .= substr($campos, 0, -1) . ") VALUES (";
 		$sql .= substr($valores, 0, -1) . ")";
-		//print_r($sql);
+		print_r($sql);
 		 return $this->query($sql);
 		
 	}
