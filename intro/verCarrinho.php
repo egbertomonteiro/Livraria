@@ -1,6 +1,7 @@
 <?php
 
 include '../configs/configurations.inc.php';
+Seguranca::estaConectado();
 //require_once(SMARTY_DIR . 'Smarty.class.php');
 
 session_start();

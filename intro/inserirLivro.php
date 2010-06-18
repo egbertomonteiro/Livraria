@@ -1,6 +1,7 @@
 <?php
 
 include_once('../configs/configurations.inc.php');
+Seguranca::estaConectado();
 $tabLivro = new Livro();
 
 

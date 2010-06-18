@@ -1,7 +1,7 @@
 <?php
 
 include '../configs/configurations.inc.php';
-
+Seguranca::estaConectado();
 session_start();
 
 $carrinho = new Carrinho();

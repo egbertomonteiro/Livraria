@@ -122,23 +122,30 @@ try {
 									<li><a href="listarPedido.php" title="Listar Pedidos">Listar Pedidos</a></li>
 								</ul>						
 							</dd>
-						</dl>
+						
 					
 					';
 		
-		if(Seguranca::temPerfil('admin'))
+		/*
+		 * 
+		 * GAMBIARRRAAAA PARA VER O MENU ADMINIOSTRATIVO
+		 * RETIRAR A NEGACAO "!" QDO TERMINAR
+		 */
+		
+		if(!Seguranca::temPerfil('admin'))
 		{
 			$conteudo .= '	
-							<h1>Sistema</h1>
-							<ul>
-								<li><a href="listarUsuario.php">Listar Usuarios</a></li>
-								<li><a href="inserirUsuario.php">Inserir Usuario</a></li>
-							</ul>
-			
+							<dt> <a href="#sistema"> Sistema </a></dt>
+							<dd>
+								<ul>
+									<li><a href="listarUsuario.php">Listar Usuarios</a></li>
+									<li><a href="inserirUsuario.php">Inserir Usuario</a></li>
+								</ul>
+							</dd>		
 							';
 		}
 		
-				$conteudo .= '</div>';
+				$conteudo .= '</dl></div>';
 				return $conteudo;
 		
 	}
@@ -402,8 +409,80 @@ try {
 	}
 	
 	
+	
+	static public function inserirUsuario($tabUsuario,$_POST)
+	{		//print_r($_POST);
+		
+		 if($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_POST['username']))
+		 {
+				    //print_r($tabLivro->inserir($_POST));
+					//$descFilter = filter_input(INPUT_POST, $_POST['descricao'], FILTER_SANITIZE_SPECIAL_CHARS);
+										
+					$filtro = array(
+									'id'   	=> array('filter' => FILTER_SANITIZE_NUMBER_INT, FILTER_NULL_ON_FAILURE),
+									'username'  	=> array('filter' => FILTER_SANITIZE_STRING,
+												     'flags'   => FILTER_FLAG_STRIP_LOW),
+									'password'    => array('filter' => FILTER_SANITIZE_STRING | FILTER_SANITIZE_NUMBER_INT,
+													 'flags'   => FILTER_FLAG_STRIP_LOW),
+									'created_at' => array('filter' => FILTER_VALIDATE_REGEXP,
+														  				array("options"=>array("regexp"=>"/^[0-9]{4}[-/][0-9]{1,2}[-/][0-9]{1,2}\$/")),
+													 	  'flags'   => FILTER_FLAG_STRIP_LOW),	
+									'last_login' => array('filter' => FILTER_VALIDATE_REGEXP,
+														  				array("options"=>array("regexp"=>"/^[0-9]{4}[-/][0-9]{1,2}[-/][0-9]{1,2}\$/")),
+													 	  'flags'   => FILTER_FLAG_STRIP_LOW),
+			
+									'is_active'	=> array('filter' => FILTER_VALIDATE_BOOLEAN,
+													 'flags'   => FILTER_FLAG_STRIP_LOW),								
+									'is_super_admin'	=> array('filter' => FILTER_VALIDATE_BOOLEAN,
+													 'flags'   => FILTER_FLAG_STRIP_LOW),					
+									);
+					try
+					{				
+							$dados = filter_input_array(INPUT_POST, $filtro); 
+							/*
+							 * Por enqto!
+							 */
+							$dados['is_active'] = '1';
+							
+							print_r($dados);				
+							if($tabUsuario->inserir($dados))
+							{ 
+								$conteudo .= '<div id="mensagem" class="success">Registro Salvo</div>';
+							}
+							else
+							{		
+								$conteudo .= '<div id="mensagem" class="error">Erro ao Salvar Registro!</div>';
+								unset($_POST['isbn']);
+							}
+
+							echo $conteudo;
+					}
+					
+					catch(Exception $e)
+					{		
+							$erro = 'Erro: ' . $e->getMessage() ."\n" . $e->getTraceAsString() . "\n";
+							error_log(date('d-m-Y H:i:s') . '-' . $erro, 3, LOG_FILE);
+							die($erro);
+					}	
+			}
+			
+			else
+			{
+						//$campos = array('id','username','password','created_at','last_login','is_active','is_super_admin');
+						$campos = array('username','password','is_super_admin');
+						echo Template::gerarFormPOST($tabUsuario, 'inserirUsuario.php' , $campos, 'Inserir Usuario');
+						//print_r($tabLivro->legendas['preco']);
+						//echo $tabLivro->listar();
+						
+	   		}
+	
+	}
+	
+	
+	
 	static public function inserirCategoria($tabCategoria,$_POST)
 	{
+
 		
 		 if($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_POST['descricao']))
 		 {
@@ -504,7 +583,7 @@ try {
 		
 	
 			$conteudo .= '<br/>';
-		    $conteudo .= '<button type="submit">Salvar</button>';
+		    $conteudo .= '<br/><button type="submit">Salvar</button>';
 		    $conteudo .= ' </form>';
 
 			$conteudo .= '</div></div>';
@@ -540,7 +619,7 @@ try {
 		{
 			foreach ($campos as $campo)
 			{
-				//$conteudo .= '<th>' . $tabObj->legendas[$campo] . '</th>'; 
+				$conteudo .= '<th>' . $tabObj->legendas[$campo] . '</th>'; 
 			
 			}
 		}

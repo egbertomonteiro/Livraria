@@ -106,7 +106,7 @@
 	#mensagem{	
 	width:320px;
 	height:16px;
-	padding:4px 7px 5px;
+	padding:4px 2px 5px;
 	margin:15px 70px 10px;
 	float:right;
 
@@ -135,11 +135,49 @@
             float:right;
 		
 	}
+	
+	
+  #inssf_guard_user {
+            padding-top:2px;
+            padding-bottom:5px;
+            padding-right:505px;
+            width:600px;
+            float:right;	
+  				}
+  				
+	    .linssf_guard_user-elem {
+            width:495px;
+            height:34px;
+            margin-bottom:3px;
+            float:left;
+            font-size:14px;
+
+						}
+						
+        .linssf_guard_user-elem a{
+            text-decoration:none;
+            color:#5C5C5C;
+							}
+
+        .linssf_guard_user-elem a:hover{
+            color:#2198d0;
+									}
+
+
+        .linssf_guard_user-elem img{
+            margin-right:10px;
+            margin-left:15px;
+								}
+	
+  				
+  				
+            
+            
 
      #inslivro {
             padding-top:2px;
             padding-bottom:5px;
-            padding-right:15px;
+            padding-right:505px;
             width:600px;
             float:right;
 	}
@@ -175,7 +213,7 @@
 	     #inscategoria {
             padding-top:2px;
             padding-bottom:5px;
-            padding-right:15px;
+            padding-right:505px;
             width:600px;
             float:right;
 	}

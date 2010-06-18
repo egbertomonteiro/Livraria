@@ -1,6 +1,6 @@
 <?php
 include_once('../configs/configurations.inc.php');
-
+Seguranca::estaConectado();
 $tabCategoria = new Categoria();
 
 if(isset($_GET['id']) AND isset($_GET['ok']))

@@ -1,7 +1,7 @@
 <?php
 
 include_once('../configs/configurations.inc.php');
-
+Seguranca::estaConectado();
 $tabLivro = new Livro();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id']))

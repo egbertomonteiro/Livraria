@@ -30,7 +30,7 @@ class Seguranca
 				$_SESSION['login'] = $_POST['login'];
 				$_SESSION['horalogin'] = date('d/m/Y H:i');
 				$_SESSION['nome'] = $usuarioLogin->nome;
-				$_SESSION['perfil'] = $usuarioLogin->perfil;
+				$_SESSION['admin'] = $usuarioLogin->is_super_admin;
 				
 				return true;
 				
@@ -59,6 +59,9 @@ class Seguranca
 		}
 		
 	}
+	
+
+	
 
 	
 	static public function temPerfil($perfil)
@@ -68,7 +71,7 @@ class Seguranca
 			$perfil = array($perfil);
 		}
 		
-		if(in_array($_SESSION['perfil'], $perfil))
+		if(in_array($_SESSION['admin'], $perfil))
 		{
 			return true;
 		}
