@@ -4,10 +4,11 @@ class Categoria extends Tabela
 {
 	protected $tabela = 'categoria';
 	protected $chavePrimaria = 'id';
-	protected $campos = array('id','descricao');
+	protected $campos = array('id','descricao', 'tipo');
 	protected $legendas = array(
 									'id'=>'ID',
-									'descricao'=>'Categoria'
+									'descricao'=>'Descricao',
+									'tipo' => 'Tipo'
 								);
 	
 								

@@ -103,7 +103,8 @@ try {
 							<dt> <a href="#livros"> Livros </a></dt>
 							<dd>
 								<ul>
-									<li><a href="listarLivros.php" title="Listar Livros" >Listar Livros</a></li>
+								
+									<li><a href="listarLivros.php" title="Listar Livros">Listar Livros</a></li>
 									<li><a href="inserirLivro.php" title="Inserir Livros">Inserir Livro</a></li>
 								</ul>
 							</dd>	
@@ -122,7 +123,7 @@ try {
 								</ul>						
 							</dd>
 						</dl>
-					</div>
+					
 					';
 		
 		if(Seguranca::temPerfil('admin'))
@@ -317,7 +318,7 @@ try {
 	{
 		$arquivo = 'cabecalhoSite.html';
 					$parametros = array('%CARRINHO_TOTAL_ITENS%'=>$_SESSION['produtos'],
-							'%CARRINHO_VALOR_TOTAL%'=>number_format($_SESSION['total'], 2, ',', '.'));
+							'%CARRINHO_VALOR_TOTAL%'=>$_SESSION['total']);
 	
 		self::exibirArquivo($arquivo,$parametros);
 	}
@@ -332,39 +333,239 @@ try {
 							
 	}
 	
-	static function gerarTabela($tabObj, $tabResult, $campos=false)
+	static public function randClassTable()
 	{
-		$conteudo = '
-					<table border="1">
-						<tr>
-							<th> Ações </th>
+		$arr = array("A", "C" , "X", "U");
+		
+		return $arr[rand(0,3)];
+		
+		
+	}
+	
+	static public function inserirLivro($tabLivro,$_POST)
+	{
+		
+		 if($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_POST['isbn']))
+		 {
+				    //print_r($tabLivro->inserir($_POST));
+					//$descFilter = filter_input(INPUT_POST, $_POST['descricao'], FILTER_SANITIZE_SPECIAL_CHARS);
+										
+					$filtro = array(
+									'isbn'   	=> array('filter' => FILTER_SANITIZE_NUMBER_INT, FILTER_NULL_ON_FAILURE),
+									'autor'  	=> array('filter' => FILTER_SANITIZE_STRING,
+												     'flags'   => FILTER_FLAG_STRIP_LOW),
+									'titulo'    => array('filter' => FILTER_SANITIZE_STRING,
+													 'flags'   => FILTER_FLAG_STRIP_LOW),
+									'cat_id' => array('filter' => FILTER_SANITIZE_NUMBER_INT,
+													 'flags'   => FILTER_FLAG_STRIP_LOW),	
+									'preco' 	=> array('filter' => FILTER_SANITIZE_NUMBER_FLOAT,
+													 'flags' => FILTER_FLAG_ALLOW_FRACTION | FILTER_FLAG_ALLOW_THOUSAND),
+			
+									'sumario'	=> array('filter' => FILTER_SANITIZE_STRING,
+													 'flags'   => FILTER_FLAG_STRIP_LOW),								
+					
+									);
+					try
+					{				
+							$dados = filter_input_array(INPUT_POST, $filtro); 
+													
+							if($tabLivro->inserir($dados))
+							{ 
+								$conteudo .= '<div id="mensagem" class="success">Registro Salvo</div>';
+							}
+							else
+							{		
+								$conteudo .= '<div id="mensagem" class="error">Erro ao Salvar Registro!</div>';
+								unset($_POST['isbn']);
+							}
+
+							echo $conteudo;
+					}
+					
+					catch(Exception $e)
+					{		
+							$erro = 'Erro: ' . $e->getMessage() ."\n" . $e->getTraceAsString() . "\n";
+							error_log(date('d-m-Y H:i:s') . '-' . $erro, 3, LOG_FILE);
+							die($erro);
+					}	
+			}
+			
+			else
+			{
+						$campos = array('isbn','autor', 'titulo', 'cat_id','preco', 'sumario');
+						echo Template::gerarFormPOST($tabLivro, 'inserirLivro.php' , $campos, 'Inserir Livros');
+						//print_r($tabLivro->legendas['preco']);
+						//echo $tabLivro->listar();
+						
+	   		}
+	
+	}
+	
+	
+	static public function inserirCategoria($tabCategoria,$_POST)
+	{
+		
+		 if($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_POST['descricao']))
+		 {
+				    //print_r($tabLivro->inserir($_POST));
+					//$descFilter = filter_input(INPUT_POST, $_POST['descricao'], FILTER_SANITIZE_SPECIAL_CHARS);
+										
+					$filtro = array(
+									'descricao'	=> array('filter' => FILTER_SANITIZE_STRING,
+														 'flags'   => FILTER_FLAG_STRIP_LOW),								
+					
+									);
+					try
+					{				
+							$dados = filter_input_array(INPUT_POST, $filtro); 
+													
+							if($tabLivro->inserir($dados))
+							{ 
+								$conteudo .= '<div id="mensagem" class="success">Registro Salvo</div>';
+							}
+							else
+							{		
+								$conteudo .= '<div id="mensagem" class="error">Erro ao Salvar Registro!</div>';
+								unset($_POST['isbn']);
+							}
+
+							echo $conteudo;
+					}
+					
+					catch(Exception $e)
+					{		
+							$erro = 'Erro: ' . $e->getMessage() ."\n" . $e->getTraceAsString() . "\n";
+							error_log(date('d-m-Y H:i:s') . '-' . $erro, 3, LOG_FILE);
+							die($erro);
+					}	
+			}
+			
+			else
+			{
+						$campos = array('descricao');
+						echo Template::gerarFormPOST($tabCategoria, 'inserirCategoria.php' , $campos, 'Inserir Categoria');
+						//print_r($tabLivro->legendas['preco']);
+						//echo $tabLivro->listar();
+						
+	   		}
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	static function gerarFormPOST($tabObj, $formact , $campos=false, $titulo=false)
+	{
+		
+		//echo $tabLivro->legendas;	
+		
+		$conteudo = '<div id="ins' . $tabObj->tabela . '" >
+					<div class="titulo" >
+						' . $titulo . ' 
+					 </div>
+					 
+					 
+					
+				
+					<form action="'. $formact .'" method="post">
 					';
 		if($campos)
 		{
 			foreach ($campos as $campo)
 			{
-				$conteudo .= '<th>' . $tabObj->legendas[$campo] . '</th>'; 
+			
+				$conteudo .= '<li class="lins' . $tabObj->tabela . '-elem">' . $tabObj->legendas[$campo] . '<input type="text" name="' . $campo . '" value=""/> <br/></li>';
+			
 			}
 		}
 		else
 		{
 			foreach($tabObj->legendas as $campo)
 			{
-				$conteudo .= '<th>' . $campo . '</th>';
+
+					$conteudo .= '<li class="lins' . $tabObj->tabela . '-elem">' . $campo . '<input type="text" name="' . $campo . '" value=""/> <br/></li>';
+						
+
+			}
+		}
+	
+		
+	
+			$conteudo .= '<br/>';
+		    $conteudo .= '<button type="submit">Salvar</button>';
+		    $conteudo .= ' </form>';
+
+			$conteudo .= '</div></div>';
+			
+			return $conteudo;
+	
+		
+		
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	static function gerarTabela($tabObj, $tabResult, $campos=false)
+	{
+		$conteudo .= '<div id="dts_example"> 
+					<div id="container">
+					<div id="demo">
+					<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+					<thead>
+						<tr class="odd gradeB">
+							<th>  Ações </th>
+					';
+		if($campos)
+		{
+			foreach ($campos as $campo)
+			{
+				//$conteudo .= '<th>' . $tabObj->legendas[$campo] . '</th>'; 
+			
+			}
+		}
+		else
+		{
+			foreach($tabObj->legendas as $campo)
+			{
+
+					$conteudo .= '<th>' . $campo . '</th>';
+
 			}
 		}
 	
 		$conteudo .= '</tr>';
-		
+		$conteudo .= '<br/></thead> <tbody>';
+	
 		while($tabLinha = $tabResult->fetch(PDO::FETCH_ASSOC))
 		{
 			$conteudo .= '
-				<tr>
+				<tr class="grade' . self::randClassTable() . '">
 				<td>
 				<a href="' . 'editar' . ucfirst($tabObj->tabela) . '.php?' . $tabObj->chavePrimaria . "=" . $tabLinha[$tabObj->chavePrimaria] . '">
-				<img src= ".. /imagens/editar.png" alt="editar" title="Editar"></a>
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
 				<a href="' . 'excluir' . ucfirst($tabObj->tabela) . '.php?' . $tabObj->chavePrimaria . "=" . $tabLinha[$tabObj->chavePrimaria] . '">	
-				<img src="../imagens/excluir.png" alt="excluir" title="E×cluir"></a>
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
 				</td>
 				';
 		
@@ -390,7 +591,10 @@ try {
 				foreach ($tabLinha as $campo => $valor) 
 				{
 					// Montando Valores
-					$conteudo .= '<td>' . $valor . '</td>';
+					
+							$conteudo .= '<td class="expandable">' . $valor . '</td>';
+						
+					
 				}
 			
 			}
@@ -398,16 +602,28 @@ try {
 			// Finalizando Zinha
 			$conteudo .= '</tr>';
 			
+			
+			
 		} // finaliza while
+			$conteudo .= '</tbody>';
+			$conteudo .= '<tfoot>';
+			
+			$conteudo .= '<tr>
+							<th>Tux</th>
+							<th>tfooter</th>
+						  </tr>	
+							';
+			$conteudo .= '</tfoot>';
 			
 			// Finalizando tabela
-			$conteudo .= '</table>';
+			$conteudo .= '</table></div></div></div></div>';
 			
 			return $conteudo;
 	
 		
 		
 }
+
 	
 	
 	

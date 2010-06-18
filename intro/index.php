@@ -11,6 +11,8 @@ $tabLivro = new Livro;
 Seguranca::estaConectado();
 
 Template::gerarAdmin();
+//Template::gerarSite();
+
 
 
 

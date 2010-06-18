@@ -161,7 +161,7 @@ abstract class Tabela
 	public function inserir($dados)
 	{
 			
-		print_r($dados);
+	
 		try 
 		{			
 			if(!is_array($dados))
@@ -195,7 +195,6 @@ abstract class Tabela
 		
 		$sql .= substr($campos, 0, -1) . ") VALUES (";
 		$sql .= substr($valores, 0, -1) . ")";
-		print_r($sql);
 		 return $this->query($sql);
 		
 	}

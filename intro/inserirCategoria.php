@@ -4,6 +4,19 @@ include_once('../configs/configurations.inc.php');
 
 $tabCategoria = new Categoria();
 
+
+Template::gerarCabecalhoSite();
+
+echo Template::inserirCategoria($tabCategoria, $_POST);
+echo Template::gerarMenuAdmin();
+
+
+echo Template::gerarRodape();
+
+
+
+/*
+
 if($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_POST['descricao']))
 {
 	//print_r($tabCategoria);
@@ -30,15 +43,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_POST['descricao']))
 }
 
 else
-{
-	?>
+{	static function gerarFormPOST($tabObj, $formact , $campos=false, $titulo=false);
+	$campos = array('descricao');
+	Template::gerarFormPOST($tabCategoria, 'inserirCategoria.php',  )
+
 	<form action="inserirCategoria.php" method="post">
 	Descrição: <input type="text" name="descricao" value=""/> <br/>
 	<button type="submit">Salvar</button>
 		
 	</form>
+
 	
-	<?php 
+
 }
+*/
 
 ?>

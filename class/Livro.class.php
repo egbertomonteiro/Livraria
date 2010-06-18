@@ -2,6 +2,8 @@
 
 class Livro extends Tabela
 {
+
+	
 	protected $tabela = 'livro';
 	protected $chavePrimaria = 'id';
 	protected $chaveEstrangeira = 'cat_id';
@@ -15,23 +17,14 @@ class Livro extends Tabela
 									'preco'=>'Preco',
 									'sumario'=>'Sumario'
 								);
-	
+		
 								
 	public function listarAlfabetico()
 	{
 		return $this->listar(null,'descricao');
 	}
 	
-	public function listarPorCatID($chave)
-	{	
-		//static $resultado;
-		
-		$resultado = $this->listar($this->chaveEstrangeira . " = '$chave'");
-		//var_dump($resultado);
-		//return $resultado->fetchObject();
-		return $resultado;
-		
-	}
+
 	
 
 	

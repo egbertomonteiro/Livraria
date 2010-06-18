@@ -1,0 +1,578 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css"  href="../css/style.css" />
+
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/jquery.expander.js"></script>
+	<script type="text/javascript" src="../js/jquery.dataTables.js"></script>
+	 
+	 <script type="text/javascript">
+$(document).ready(function() {
+
+  // simple example, using all default options
+ // $('td.expandable').expander();
+  
+  // *** OR ***
+  
+  // override some default options
+  $('td.expandable').expander({
+    slicePoint:       80,  // default is 100
+    expandText:         '', // default is 'read more...'
+    collapseTimer:    0, // re-collapses after 5 seconds; default is 0, so no re-collapsing
+    userCollapseText: ''  // default is '[collapse expanded text]'
+  });
+  
+});
+</script>
+
+	 
+	 
+	 
+  <script> 
+	   $(document).ready(function() {
+			$('#example').dataTable( {
+				"aaSorting": [[ 1, "asc" ]],	
+				"bJQueryUI": true,
+				"sPaginationType": "full_numbers"
+			} );
+		} );
+    </script> 
+	
+	<script>
+	$(document).ready(function(){
+		$("dd:not(:first)").hide();
+		$("dt a").click(function(){
+			$("dd:visible").slideUp("slow");
+			$(this).parent().next().slideDown("slow");
+			return false;
+		});
+	
+	});
+	</script>
+
+
+
+
+
+
+
+<title>Livraria do Tux</title>
+</head>
+<body>
+
+<div id="pagina">
+		
+		<div id="cabecalho">
+					<div id="userinform">
+					Login: %SESSIONLOGIN%  Perfil: %SESSIONPERFIL%  Bem Vindo: %SESSIONNOME% Logado Desde: %SESSIONDATALOGADO%
+					</div>
+			
+			<div id="vercarrinho">
+				
+				Total de Itens = %CARRINHO_TOTAL_ITENS%  Valor Total = R$ Array 
+				<br/>
+				<a href="verCarrinho.php"> Ver Carrinho </a>
+			
+			
+			</div>
+		
+			<h1> Livraria do tux </h1>
+		
+		
+		</div>
+
+	<div id="pagina-body">
+<div id="dts_example"> 
+					<div id="container">
+					<div id="demo">
+					<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+					<thead>
+						<tr class="odd gradeB">
+							<th>  Ações </th>
+					<th>ID</th><th>ISBN</th><th>Autor</th><th>Titulo</th><th>CATID</th><th>Preco</th><th>Sumario</th></tr><br/></thead> <tbody>
+				<tr class="gradeU">
+				<td>
+				<a href="editarLivro.php?id=1">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=1">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">1</td><td class="expandable">8508081774</td><td class="expandable">Dupre, Maria Jose</td><td class="expandable">A Montanha Encantada - Col. Cachorrinho Samba</td><td class="expandable">6</td><td class="expandable">19.90</td><td class="expandable">N�o � para me gabar, mas a cole��o Cachorrinho Samba vem conquistando crian�as e jovens h� mais de 50 anos. � Samba � aquele tipo de bicho que sempre sonhei Ter um dia. Ele � amigo, carinhoso, engra�ado...acho que s� falta falar! O pessoal tamb�m adora a turminha de garotos que s�o meus amigos. Juntos j� vivemos cada aventura! S� que desta vez eles foram passar as f�rias numa fazenda e n�o me levaram. Sorte do Pingo e do Pipoca, que n�o v�o esquecer t�o cedo os sustos e as emo��es que viveram na Montanha Encantada.</td></tr>
+				<tr class="gradeX">
+				<td>
+				<a href="editarLivro.php?id=2">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=2">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">2</td><td class="expandable">8508081715</td><td class="expandable">Dupre, Maria Jose</td><td class="expandable">O Cachorrinho Samba - Col. Cachorrinho Samba</td><td class="expandable">6</td><td class="expandable">19.90</td><td class="expandable">No colo da Vov�, lambendo a orelha dos donos ou brincando com a garotada, o cachorrinho Samba era a alegria da casa. At� o dia em que ele, curioso, recebeu dar uma saidinha... e acabou se perdendo na cidade grande, cheia de perigos, pessoas amea�adoras e lugares desconhecidos.</td></tr>
+				<tr class="gradeC">
+				<td>
+				<a href="editarLivro.php?id=3">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=3">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">3</td><td class="expandable">8508081758</td><td class="expandable">Dupre, Maria Jose</td><td class="expandable">O Cachorrinho Samba na Floresta - Col. Cachorrinho Samba</td><td class="expandable">6</td><td class="expandable">19.90</td><td class="expandable">Desta vez Samba foi longe demais. Ele se embrenha numa floresta cheia de mist�rios e perigos, se surpreendendo com a cerrada vegeta��o e se admirando com tantos animais selvagens. Entre os bichos, Samba faz amigos e se diverte, mas a on�a - pintada tem fome e est� � espreita...</td></tr>
+				<tr class="gradeX">
+				<td>
+				<a href="editarLivro.php?id=4">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=4">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">4</td><td class="expandable">8508081731</td><td class="expandable">Dupre, Maria Jose</td><td class="expandable">O Cachorrinho Samba na Fazenda - Col. Cachorrinho Samba</td><td class="expandable">6</td><td class="expandable">19.00</td><td class="expandable">Pela primeira vez, o cachorrinho Samba soube o que era a vida numa fazenda. L� tudo era novidade: hist�rias e hist�rias para se ouvir! Tantos animais diferentes para se ver! Planta��es e matas de perder de vista! Cada passeio, uma aventura, �s vezes arriscada...mas sempre inesquec�vel.</td></tr>
+				<tr class="gradeA">
+				<td>
+				<a href="editarLivro.php?id=5">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=5">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">5</td><td class="expandable">8508081790</td><td class="expandable">Dupre, Maria Jose</td><td class="expandable">A Mina de Ouro - Col. Cachorrinho Samba</td><td class="expandable">6</td><td class="expandable">19.90</td><td class="expandable">Ia ser um piquenique muito agrad�vel. Mas as seis crian�as e o cachorrinho Samba resolveram ver aonde ia dar aquela velha escada para o interior do morro. Desceram e desceram... e de repente n�o conseguiram mais voltar! Estavam perdidos...ser� que para sempre?</td></tr>
+				<tr class="gradeA">
+				<td>
+				<a href="editarLivro.php?id=6">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=6">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">6</td><td class="expandable">856001800X</td><td class="expandable">Tzu, Sun</td><td class="expandable">A Arte da Guerra - Os Treze Cap�tulos Originais</td><td class="expandable">2</td><td class="expandable">39.90</td><td class="expandable">O maior tratado de guerra de todos os tempos em sua vers�o completa em portugu�s. "A Arte da Guerra" � sem d�vida a B�blia da estrat�gia, sendo hoje utilizada amplamente no mundo dos neg�cios, conquistando pessoas e mercados. N�o nos surpreende v�-la citada em filmes como Wall Street (Oliver Stone, 1990) e constantemente aplicada para solucionar os mais recentes conflitos do nosso dia-a-dia. Conhe�a um dos maiores �cones da estrat�gia dos �ltimos 2500 anos.</td></tr>
+				<tr class="gradeA">
+				<td>
+				<a href="editarLivro.php?id=7">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=7">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">7</td><td class="expandable">8575421026</td><td class="expandable">Hunter, James C.</td><td class="expandable">O Monge e o Executivo - Uma Hist�ria Sobre a Ess�ncia da Lideran�a</td><td class="expandable">2</td><td class="expandable">19.90</td><td class="expandable">Voc� est� convidado a juntar-se a um grupo que durante uma semana vai estudar com um dos maiores especialistas em lideran�a dos Estados Unidos. Leonard Hoffman, um famoso empres�rio que abandonou sua brilhante carreira para se tornar monge em um mosteiro beneditino, � o personagem central desta envolvente hist�ria criada por James C. Hunter para ensinar de forma clara e agrad�vel os princ�pios fundamentais dos verdadeiros l�deres. Se voc� tem dificuldade em fazer com que sua equipe d� o melhor de si no trabalho e gostaria de se relacionar melhor com sua fam�lia e seus amigos, vai encontrar neste livro personagens, id�ias e discuss�es que v�o abrir um novo horizonte em sua forma de lidar com os outros. � imposs�vel ler este livro sem sair transformado. "O Monge e o Executivo" �, sobretudo, uma li��o sobre como se tornar uma pessoa melhor.</td></tr>
+				<tr class="gradeA">
+				<td>
+				<a href="editarLivro.php?id=8">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=8">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">8</td><td class="expandable">8573124393</td><td class="expandable">Cerbasi, Gustavo Petrasunas</td><td class="expandable">Casais Inteligentes Enriquecem Juntos</td><td class="expandable">3</td><td class="expandable">32.90</td><td class="expandable">Um dos maiores detonadores de brigas entre o casal s�o as dificuldades financeiras. Faltou dinheiro para pagar as contas? Para Gustavo Cerbasi, a causa desse desentendimento � a falta de conversa em fam�lia sobre dinheiro. Em geral o casal s� fala sobre o assunto quando a bomba j� estourou. E, como n�o discute a quest�o a dois, a maioria n�o faz um or�amento, n�o guarda dinheiro para atingir suas metas (ou, pior ainda, cada um tem seu objetivo, que o outro n�o conhece), n�o tem planos para a manuten��o de seu padr�o de vida no futuro, toma decis�es de compra sem refletir, investe mal o dinheiro que eles suaram tanto para ganhar... Tem jeito? Sim, � poss�vel mudar esse quadro se houver vontade e compromisso do casal, seja qual for seu or�amento. Com sugest�es para casais em qualquer fase do relacionamento, dos namorados aos casais com filhos adultos, "Casais Inteligentes Enriquecem Juntos" mostra diferentes estrat�gias para formar uma parceria inteligente, ao longo da vida, na administr</td></tr>
+				<tr class="gradeC">
+				<td>
+				<a href="editarLivro.php?id=9">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=9">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">9</td><td class="expandable">9788522009770</td><td class="expandable">Kahney, Leander</td><td class="expandable">A Cabe�a de Steve Jobs</td><td class="expandable">2</td><td class="expandable">36.90</td><td class="expandable">� dif�cil acreditar que um homem revolucionou os computadores nos anos 1970 e 1980, o cinema de anima��o e a m�sica digital nos anos 1990. Por outro lado, s�o lend�rias as hist�rias de seus repentinos acessos de raiva, revelando o verdadeiro Steve Jobs. Ent�o, o que h�, realmente, dentro do c�rebro de Steve? Segundo Leander Kahney, � um fascinante feixe de contradi��es. O autor destila os princ�pios que guiam Jobs ao lan�ar produtos arrasadores, ao atrair compradores fanaticamente fi�is e ao administrar algumas das marcas mais poderosas do mundo. O resultado � este livro singular sobre Steve Jobs que �, ao mesmo tempo, uma biografia e um guia de lideran�a, imposs�vel de largar.</td></tr>
+				<tr class="gradeA">
+				<td>
+				<a href="editarLivro.php?id=10">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=10">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">10</td><td class="expandable">9788500330599</td><td class="expandable">Chalita, Gabriel; Melo , F�bio de</td><td class="expandable">Cartas Entre Amigos - Sobre Medos Contempor�neos</td><td class="expandable">3</td><td class="expandable">34.90</td><td class="expandable">Um dos livros mais aguardados do ano, traz reflex�es sobre temas contempor�neos de grande interesse. O medo da morte, da solid�o, do fracasso, da inveja, do envelhecimento, das paix�es, da falta de sentido da vida. No formato de cartas entre dois grandes amigos, tais temas s�o tratados com sensibilidade pelos jovens autores mais celebrados do momento, duas lideran�as incontest�veis das novas gera��es: Gabriel Chalita e Padre F�bio de Melo. O livro resgata os valores do humanismo ao mesmo tempo que celebra a amizade de duas personalidades apaixonadas por filosofia, literatura e poesia.</td></tr>
+				<tr class="gradeU">
+				<td>
+				<a href="editarLivro.php?id=11">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=11">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">11</td><td class="expandable">9788520919866</td><td class="expandable">Losier, Michael J.</td><td class="expandable">A Lei da Atra��o - O Segredo Colocado em Pr�tica</td><td class="expandable">3</td><td class="expandable">29.90</td><td class="expandable">Segundo a "Lei da Atra��o" devemos delegar � nossa pr�pria forma de pensar e de se relacionar com o mundo o efeito poderoso de atrair os acontecimentos. Todos guardamos dentro de n�s a for�a motriz que faz com que nossos desejos se concretizem e que nossas id�ias e projetos se tornem realidade, independente das dificuldades que ambiente externo apresente. Para Michael Losier, autor do livro "Lei da Atra��o - The Secret", todos vivemos inconscientemente sob esta lei. O que falta para muitos de n�s � justamente ter a consci�ncia para agir ativamente sobre ela, explicando atrav�s de nossos pr�prios pensamentos e atitudes tudo o que atra�mos para nossas vidas (tudo de bom e tamb�m tudo de ruim!). O livro "Lei da Atra��o" traz todas as dicas, ferramentas e exerc�cios que ajudar�o voc� a influenciar diretamente tudo o que acontece em sua vida, aumentando o impacto e a for�a do pensamento na realiza��o dos seus desejos.</td></tr>
+				<tr class="gradeC">
+				<td>
+				<a href="editarLivro.php?id=12">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=12">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">12</td><td class="expandable">9788500330759</td><td class="expandable">Byrne, Rhonda</td><td class="expandable">The Secret - O Segredo - Ed. Comemorativa</td><td class="expandable">3</td><td class="expandable">34.90</td><td class="expandable">Voc� tem nas m�os um grande Segredo! Altamente cobi�ado, ele foi transmitido ao longo dos tempos, ocultado, perdido, roubado e comprado por grandes somas de dinheiro. Este Segredo cecular foi compreendido por alguns dos maiores g�nios da Hist�ria: Plat�o, Galileu, Beethoven, Edison, Einstein � assim como outros inventores, te�logos, cientistas e grandes pensadores. Agora o Segredo est� sendo revelado ao mundo.</td></tr>
+				<tr class="gradeU">
+				<td>
+				<a href="editarLivro.php?id=13">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=13">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">13</td><td class="expandable">9788535232158</td><td class="expandable">Carvalho, Jo�o Antonio</td><td class="expandable"> 	No��es de Inform�tica para Concursos - Teoria e Quest�es</td><td class="expandable">1</td><td class="expandable">39.90</td><td class="expandable">Esta obra � um Manual resumido de Inform�tica para concursos p�blicos, derivado do best-seller Inform�tica para Concursos, do mesmo autor. Traz teoria resumida especialmente para os concursos que cobram apenas no��es de inform�tica, quest�es de concursos para fixa��o e muitas imagens, o que facilita a visualiza��o do conte�do apresentado.</td></tr>
+				<tr class="gradeA">
+				<td>
+				<a href="editarLivro.php?id=14">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=14">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">14</td><td class="expandable">8537100730</td><td class="expandable">Vargas, Elton; Minorello, Danilo</td><td class="expandable">Php e Mysql</td><td class="expandable">1</td><td class="expandable">20.00</td><td class="expandable">"PHP e MySQL" apresenta t�cnicas para o desenvolvimento de sites com recursos din�micos e interativos. Atrav�s da programa��o em PHP, a linguagem utilizada por mais de 10 milh�es de sites no mundo inteiro, apresenta recursos como enviar e-mails, leitura e grava��o de dados em arquivos, al�m de comandos em conjunto com tags HTML, que aumentar�o o dinamismo de seu site, pois muitas fun��es dos servidores poder�o deste modo ser adicionadas. Seu formato original � compat�vel com v�rias vers�es do UNIX e Windows. O guia disponibiliza diversos exemplos de programas, para que seja compreendida de forma pr�tica a rela��o da linguagem PHP com o MySQL. Al�m de no��es de programa��o, estrutura��o de programas, operadores, estrutura��o de dados, banco de dados compat�veis entre outros recursos.</td></tr>
+				<tr class="gradeC">
+				<td>
+				<a href="editarLivro.php?id=15">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=15">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">15</td><td class="expandable">9788576082026</td><td class="expandable">Phillips, Jon; Davis, Michele E.</td><td class="expandable">Aprendendo Php & Mysql</td><td class="expandable">1</td><td class="expandable">99.90</td><td class="expandable">PHP e MySQL est�o rapidamente se tornando padr�es quanto ao desenvolvimento de web sites din�micos, movidos a bancos de dados. Para os novatos em programa��o � ou para qualquer um que se sinta intimidado por tutoriais de programa��o dif�ceis de serem seguidos � Aprendendo PHP & MySQL � a maneira perfeita para aprender esta combina��o potente de desenvolvimento de web r�pida e facilmente. Esta nova edi��o est� focada n�o somente em PHP e MySQL, mas tamb�m nas tecnologias que interagem para a forma��o de p�ginas din�micas com esta abordagem popular, incluindo Apache, servidor web, XHTML, HTTP, e muito mais. Voc� aprender� a trabalhar com MySQL por meio de exemplos espec�ficos que mostrar�o como interagir com dados. Voc� se familiarizar� com quest�es b�sicas da linguagem, combinando todos estes fatores de maneira bem sucedida na integra��o de dados do seu site. Aprendendo PHP e MySQL inclui: -O b�sico de PHP, como tipos de dados, l�gica de fluxo de programa, vari�veis, fun��es e formul�ri</td></tr>
+				<tr class="gradeA">
+				<td>
+				<a href="editarLivro.php?id=16">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=16">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">16</td><td class="expandable">9788575222003</td><td class="expandable">Dall�oglio, Pablo</td><td class="expandable">Php - Programando com Orienta��o a Objetos</td><td class="expandable">1</td><td class="expandable">95.50</td><td class="expandable">O PHP � uma das linguagens mais utilizadas no mundo. Sua popularidade se deve � facilidade em criar aplica��es din�micas com suporte � maioria dos bancos de dados existentes e ao conjunto de fun��es que, por meio de uma estrutura flex�vel de programa��o, permitem desde a cria��o de simples portais at� complexas aplica��es de neg�cio. O uso da orienta��o a objetos juntamente com o emprego de boas pr�ticas de programa��o nos possibilita manter um ritmo sustent�vel no desenvolvimento de aplica��es. O foco deste livro � demonstrar como se d� a constru��o de uma aplica��o totalmente orientada a objetos. Para isso, implementaremos alguns padr�es de projeto (design patterns) e algumas t�cnicas de mapeamento objeto-relacional, al�m de criarmos v�rios componentes para que voc� possa criar complexas aplica��es de neg�cio com PHP.</td></tr>
+				<tr class="gradeA">
+				<td>
+				<a href="editarLivro.php?id=17">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=17">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">17</td><td class="expandable">9788575221242</td><td class="expandable">Minetto, Elton Lu�s</td><td class="expandable">Frameworks para Desenvolvimento em Php</td><td class="expandable">1</td><td class="expandable">39.90</td><td class="expandable">Os frameworks facilitam o desenvolvimento de software, permitindo que os programadores se ocupem mais com os requerimentos do software do que com os detalhes tediosos, de baixo n�vel do sistema. Com o uso de frameworks, os programadores voltam a ter o controle de seu tempo e de seus c�digos-fonte, as tarefas repetitivas s�o minimizadas, os projetos s�o conclu�dos em menos tempo, os padr�es s�o seguidos, e a programa��o volta a ser uma arte. Frameworks para desenvolvimento em PHP mostra aos leitores diversos frameworks de desenvolvimento que agilizam o processo de cria��o e manuten��o de aplicativos web. Cada framework � apresentado na pr�tica por meio do desenvolvimento de um aplicativo, de modo que o leitor pode ver sua serventia em um caso real. Neste livro, s�o apresentados os frameworks mais utilizados: CakePHP, Symfony, Zend Framework, CodeIgniter e Prado.</td></tr>
+				<tr class="gradeC">
+				<td>
+				<a href="editarLivro.php?id=18">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=18">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">18</td><td class="expandable">8575220810</td><td class="expandable">Prates, Rubens; Niederauer, Juliano</td><td class="expandable">Mysql 5 - Guia de Consulta R�pida</td><td class="expandable">1</td><td class="expandable">20.00</td><td class="expandable"> 	 	 MySQL � um gerenciador de banco de dados poderoso, est�vel, extremamente eficiente, com milh�es de instala��es no mundo inteiro. � a solu��o ideal para empresas e sites de pequeno e m�dio portes. Este Guia de Consulta R�pida cont�m uma refer�ncia completa dos recursos do MySQL vers�o 5. Descreve comandos SQL, fun��es, utilit�rios, operadores, tipos de dados e muito mais. � indicado tanto para programadores Web, quanto para administradores de banco de dados. Indispens�vel para quem quer obter o m�ximo proveito do MySQL, sem perder tempo consultando volumosos manuais.</td></tr>
+				<tr class="gradeU">
+				<td>
+				<a href="editarLivro.php?id=19">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=19">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">19</td><td class="expandable">8575221035</td><td class="expandable">Milani, Andr�</td><td class="expandable">Mysql - Guia do Programador</td><td class="expandable">1</td><td class="expandable">74.00</td><td class="expandable">O MySQL � um banco de dados completo, robusto e extremamente r�pido, com todas as caracter�sticas existentes nos principais bancos de dados dispon�veis no mercado. Uma de suas peculiaridades s�o suas licen�as para uso gratuito, tanto para fins estudantis como para realiza��o de neg�cios, possibilitando que empresas o utilizem livremente. "MySQL - Guia do Programador" indica ao leitor todos os passos necess�rios para conhecer e utilizar esta ferramenta da melhor maneira poss�vel, partindo do b�sico, para quem n�o teve ainda nenhum contato com o MySQL, at� o n�vel avan�ado, servindo como um guia de refer�ncia para administradores, por meio de explica��es claras e objetivas complementadas com exemplos pr�ticos para cada situa��o de uso.</td></tr>
+				<tr class="gradeA">
+				<td>
+				<a href="editarLivro.php?id=21">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=21">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">21</td><td class="expandable">9788573029635</td><td class="expandable">Houaiss, Antonio</td><td class="expandable">Novo Dicion�rio Houaiss da L�ngua Portuguesa</td><td class="expandable">7</td><td class="expandable">197.60</td><td class="expandable">Mais de 442 mil entradas, locu��es e acep��es. Cont�m CD-ROM com o texto completo do "Dicion�rio Houaiss da L�ngua Portuguesa", o "Dicion�rio Houaiss de Elementos M�rficos" e conjuga��o eletr�nica completa dos verbos. Informa��es de gram�tica, usos, etimologias, sin�nimos, ant�nimos, hom�nimos, par�nimos, data��o, coletivos e vozes de animais. Integralmente adaptado ao novo Acordo Ortogr�fico.</td></tr>
+				<tr class="gradeX">
+				<td>
+				<a href="editarLivro.php?id=22">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=22">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">22</td><td class="expandable">978859929636</td><td class="expandable">Young, William P.</td><td class="expandable">A Cabana</td><td class="expandable">4</td><td class="expandable">13.00</td><td class="expandable">A filha mais nova de Mackenzie Allen Philip foi raptada durante as f�rias em fam�lia e h� evid�ncias de que ela foi brutalmente assassinada e abandonada numa cabana. Quatro anos mais tarde, Mack recebe uma nota suspeita, aparentemente vinda de Deus, convidando-o para voltar �quele cabana para passar o fim de semana. Ignorando alertas de que poderia ser uma cilada, ele segue numa tarde de inverno e volta a cen�rio de seu pior pesadelo. O que encontra l� muda sua vida para sempre. Num mundo em que religi�o parece tornar-se irrelevante, "A Cabana" invoca a pergunta: "Se Deus � t�o poderoso e t�o cheio de amor, por que n�o faz nada para amenizar a dor e o sofrimento do mundo?" As respostas encontradas por Mack surpreender�o voc� e, provavelmente, o transformar�o tanto quanto ele</td></tr>
+				<tr class="gradeU">
+				<td>
+				<a href="editarLivro.php?id=23">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=23">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">23</td><td class="expandable">9788529403724</td><td class="expandable">Marins, Luiz</td><td class="expandable">Projeto Cliente - Uma Metodologia Simples para Aumentar Vendas, Surpreender e Encantar Clientes</td><td class="expandable">2</td><td class="expandable">19.10</td><td class="expandable">O Brasil mudou. Os clientes mudaram. O mercado mudou. Vivemos em um mundo altamente competitivo, com muitos concorrentes, qualidade semelhante e pre�os similares.
+
+Os caminhos para vender e atingir o sucesso n�o s�o os mesmos do passado: hoje, n�o basta apenas conhecer o produto e as t�cnicas de venda � � preciso conhecer os clientes a fundo para surpreend�-los, encant�-los e, assim, conquist�-los.
+
+Nessas condi��es, destacar-se dos demais � e vencer! � n�o � tarefa apenas para a equipe de vendas, mas para toda a empresa. Se todos os departamentos e unidades de neg�cio, se todos os colaboradores, sem exce��o, n�o se envolverem diretamente com a tarefa de conquistar, manter e fidelizar clientes, essa tarefa se tornar� imposs�vel.
+
+Muito se faz em termos de treinamento de representantes, mas poucos se dedicam a estudar, de forma sistematizada, os clientes e, assim, conseguir fechar mais � e lucrativos! � neg�cios.
+
+Neste livro, com uma linguagem simples e de forma pr�tica e siste</td></tr>
+				<tr class="gradeU">
+				<td>
+				<a href="editarLivro.php?id=26">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=26">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">26</td><td class="expandable">9788586238741</td><td class="expandable">Souza, Ronald Buss</td><td class="expandable">Oceanografia Por Sat�lites</td><td class="expandable">8</td><td class="expandable">85.00</td><td class="expandable">"Oceanografia por Sat�lites" foi escrito por um grupo experiente de ocean�grafos brasileiros e estrangeiros. Descreve as novas tecnologias empregadas para o estudo do meio ambiente marinho a partir de dados de sensoriamento remoto e as vantagens e limita��es dessas tecnologias comparadas a t�cnicas mais convencionais de observa��o dos oceanos. O livro � extremamente importante por ser uma revis�o atualizada de como os dados de sensoriamento remoto est�o impulsionando as ci�ncias marinhas e mudando as perspectivas atuais da Oceanografia. Aplica��es incluem o estudo de vari�veis f�sicas que controlam o clima e o tempo marinhos, correntes, ondas, ventos, fitopl�ncton, pesca, �leo no mar e muitas outras.</td></tr>
+				<tr class="gradeA">
+				<td>
+				<a href="editarLivro.php?id=27">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=27">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">27</td><td class="expandable">999</td><td class="expandable">dsad</td><td class="expandable">dsada</td><td class="expandable">6</td><td class="expandable">9999.00</td><td class="expandable">asd</td></tr>
+				<tr class="gradeC">
+				<td>
+				<a href="editarLivro.php?id=28">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=28">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">28</td><td class="expandable">99</td><td class="expandable">dsda</td><td class="expandable">dada</td><td class="expandable">6</td><td class="expandable">344.00</td><td class="expandable">dsad</td></tr>
+				<tr class="gradeU">
+				<td>
+				<a href="editarLivro.php?id=30">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=30">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">30</td><td class="expandable">9999</td><td class="expandable">dsad</td><td class="expandable">dadas</td><td class="expandable">6</td><td class="expandable">3400.00</td><td class="expandable">32dada</td></tr>
+				<tr class="gradeC">
+				<td>
+				<a href="editarLivro.php?id=31">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=31">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">31</td><td class="expandable">909009</td><td class="expandable">dadsa</td><td class="expandable">dsadsa</td><td class="expandable">6</td><td class="expandable">85700.00</td><td class="expandable">dsadsa</td></tr>
+				<tr class="gradeX">
+				<td>
+				<a href="editarLivro.php?id=32">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=32">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">32</td><td class="expandable">3443</td><td class="expandable">dsda</td><td class="expandable">dfdsfsd</td><td class="expandable">6</td><td class="expandable">0.00</td><td class="expandable">dsdsa</td></tr>
+				<tr class="gradeX">
+				<td>
+				<a href="editarLivro.php?id=33">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=33">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">33</td><td class="expandable">3443</td><td class="expandable">dsda</td><td class="expandable">dfdsfsd</td><td class="expandable">6</td><td class="expandable">34.00</td><td class="expandable">dsdsa</td></tr>
+				<tr class="gradeC">
+				<td>
+				<a href="editarLivro.php?id=34">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=34">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">34</td><td class="expandable">543534</td><td class="expandable">fdsffsd</td><td class="expandable">dsadsa</td><td class="expandable">6</td><td class="expandable">35.00</td><td class="expandable">dsadsa</td></tr>
+				<tr class="gradeA">
+				<td>
+				<a href="editarLivro.php?id=35">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=35">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">35</td><td class="expandable">543534</td><td class="expandable">fdsffsd</td><td class="expandable">dsadsa</td><td class="expandable">6</td><td class="expandable">35.00</td><td class="expandable">dsadsa</td></tr>
+				<tr class="gradeA">
+				<td>
+				<a href="editarLivro.php?id=36">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=36">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">36</td><td class="expandable">543534</td><td class="expandable">fdsffsd</td><td class="expandable">dsadsa</td><td class="expandable">6</td><td class="expandable">0.00</td><td class="expandable">dsadsa</td></tr>
+				<tr class="gradeC">
+				<td>
+				<a href="editarLivro.php?id=37">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=37">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">37</td><td class="expandable">1</td><td class="expandable"> alert(1)</td><td class="expandable"> alert(1)</td><td class="expandable">1</td><td class="expandable">1.00</td><td class="expandable"> alert(1) </td></tr>
+				<tr class="gradeU">
+				<td>
+				<a href="editarLivro.php?id=45">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=45">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">45</td><td class="expandable">3443</td><td class="expandable">ddsa</td><td class="expandable">dsadsa</td><td class="expandable">6</td><td class="expandable">34.00</td><td class="expandable">sdsadsa</td></tr>
+				<tr class="gradeX">
+				<td>
+				<a href="editarLivro.php?id=46">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=46">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">46</td><td class="expandable">3443</td><td class="expandable">ddsa</td><td class="expandable">dsadsa</td><td class="expandable">6</td><td class="expandable">34.00</td><td class="expandable">sdsadsa</td></tr>
+				<tr class="gradeU">
+				<td>
+				<a href="editarLivro.php?id=47">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=47">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">47</td><td class="expandable">9999</td><td class="expandable">dadsa</td><td class="expandable">dadsa</td><td class="expandable">6</td><td class="expandable">34.00</td><td class="expandable">dsadsda</td></tr>
+				<tr class="gradeC">
+				<td>
+				<a href="editarLivro.php?id=48">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=48">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">48</td><td class="expandable">9999</td><td class="expandable">dadsa</td><td class="expandable">dadsa</td><td class="expandable">6</td><td class="expandable">34.00</td><td class="expandable">dsadsda</td></tr>
+				<tr class="gradeA">
+				<td>
+				<a href="editarLivro.php?id=49">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=49">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">49</td><td class="expandable">9999</td><td class="expandable">dadsa</td><td class="expandable">dadsa</td><td class="expandable">6</td><td class="expandable">34.00</td><td class="expandable">dsadsda</td></tr>
+				<tr class="gradeC">
+				<td>
+				<a href="editarLivro.php?id=50">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=50">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">50</td><td class="expandable">9999</td><td class="expandable">dadsa</td><td class="expandable">dadsa</td><td class="expandable">6</td><td class="expandable">34.00</td><td class="expandable">dsadsda</td></tr>
+				<tr class="gradeC">
+				<td>
+				<a href="editarLivro.php?id=51">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=51">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">51</td><td class="expandable">9999</td><td class="expandable">dadsa</td><td class="expandable">dadsa</td><td class="expandable">6</td><td class="expandable">34.00</td><td class="expandable">dsadsda</td></tr>
+				<tr class="gradeX">
+				<td>
+				<a href="editarLivro.php?id=52">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=52">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">52</td><td class="expandable">3443</td><td class="expandable">ddsa</td><td class="expandable">dsadsa</td><td class="expandable">6</td><td class="expandable">34.00</td><td class="expandable">sdsadsa</td></tr>
+				<tr class="gradeU">
+				<td>
+				<a href="editarLivro.php?id=53">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=53">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">53</td><td class="expandable">3443</td><td class="expandable">ddsa</td><td class="expandable">dsadsa</td><td class="expandable">6</td><td class="expandable">34.00</td><td class="expandable">sdsadsa</td></tr>
+				<tr class="gradeA">
+				<td>
+				<a href="editarLivro.php?id=54">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=54">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">54</td><td class="expandable">3443</td><td class="expandable">ddsa</td><td class="expandable">dsadsa</td><td class="expandable">6</td><td class="expandable">34.00</td><td class="expandable">sdsadsa</td></tr>
+				<tr class="gradeU">
+				<td>
+				<a href="editarLivro.php?id=55">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=55">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">55</td><td class="expandable">3443</td><td class="expandable">ddsa</td><td class="expandable">dsadsa</td><td class="expandable">6</td><td class="expandable">34.00</td><td class="expandable">sdsadsa</td></tr>
+				<tr class="gradeU">
+				<td>
+				<a href="editarLivro.php?id=56">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=56">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">56</td><td class="expandable">3443</td><td class="expandable">ddsa</td><td class="expandable">dsadsa</td><td class="expandable">6</td><td class="expandable">34.00</td><td class="expandable">sdsadsa</td></tr>
+				<tr class="gradeU">
+				<td>
+				<a href="editarLivro.php?id=57">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=57">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">57</td><td class="expandable">3443</td><td class="expandable">ddsa</td><td class="expandable">dsadsa</td><td class="expandable">6</td><td class="expandable">34.00</td><td class="expandable">sdsadsa</td></tr>
+				<tr class="gradeC">
+				<td>
+				<a href="editarLivro.php?id=58">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=58">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">58</td><td class="expandable">3443</td><td class="expandable">ddsa</td><td class="expandable">dsadsa</td><td class="expandable">6</td><td class="expandable">34.00</td><td class="expandable">sdsadsa</td></tr>
+				<tr class="gradeA">
+				<td>
+				<a href="editarLivro.php?id=59">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=59">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">59</td><td class="expandable">3443</td><td class="expandable">ddsa</td><td class="expandable">dsadsa</td><td class="expandable">6</td><td class="expandable">34.00</td><td class="expandable">sdsadsa</td></tr>
+				<tr class="gradeA">
+				<td>
+				<a href="editarLivro.php?id=60">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=60">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">60</td><td class="expandable">3443</td><td class="expandable">ddsa</td><td class="expandable">dsadsa</td><td class="expandable">6</td><td class="expandable">34.00</td><td class="expandable">sdsadsa</td></tr>
+				<tr class="gradeA">
+				<td>
+				<a href="editarLivro.php?id=61">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=61">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">61</td><td class="expandable">3443</td><td class="expandable">ddsa</td><td class="expandable">dsadsa</td><td class="expandable">6</td><td class="expandable">34.00</td><td class="expandable">sdsadsa</td></tr>
+				<tr class="gradeU">
+				<td>
+				<a href="editarLivro.php?id=62">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=62">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">62</td><td class="expandable">3443</td><td class="expandable">ddsa</td><td class="expandable">dsadsa</td><td class="expandable">6</td><td class="expandable">34.00</td><td class="expandable">sdsadsa</td></tr>
+				<tr class="gradeX">
+				<td>
+				<a href="editarLivro.php?id=63">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=63">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">63</td><td class="expandable">3443</td><td class="expandable">ddsa</td><td class="expandable">dsadsa</td><td class="expandable">6</td><td class="expandable">34.00</td><td class="expandable">sdsadsa</td></tr>
+				<tr class="gradeX">
+				<td>
+				<a href="editarLivro.php?id=64">
+				<img src= "../images/icons/edit_icon.png" alt="editar" title="Editar"></a>
+				<a href="excluirLivro.php?id=64">	
+				<img src="../images/icons/excluir_small.png" alt="excluir" title="E×cluir"></a>
+				</td>
+				<td class="expandable">64</td><td class="expandable">9999</td><td class="expandable">dssdda</td><td class="expandable">sdadsa</td><td class="expandable">6</td><td class="expandable">0.00</td><td class="expandable">34,00</td></tr></tbody><tfoot><tr>
+							<th>Tux</th>
+							<th>tfooter</th>
+						  </tr>	
+							</tfoot></table>
+							</div>
+							</div>
+				</div>
+				</div>
+		
+					
+					
+					
+</div> <!-- div id body  -->
+
+			<div id="menucategorias">
+						<dl>
+							<dt> <a href="#livros"> Livros </a></dt>
+							<dd>
+								<ul>
+								
+									<li><a href="listarLivros.php" title="Listar Livros">Listar Livros</a></li>
+									<li><a href="inserirLivro.php" title="Inserir Livros">Inserir Livro</a></li>
+								</ul>
+							</dd>	
+							<dt> <a href="#categorias"> Categorias </a></dt>
+							<dd>
+								<ul>
+									<li><a href="listarCategorias.php" title="Listar Categorias">Listar Categorias</a></li>
+									<li><a href="inserirCategoria.php" title="Inserir Categorias">Inserir Categorias</a></li>
+								</ul>						
+							</dd>
+							
+							<dt> <a href="#pedidos"> Pedidos </a></dt>
+							<dd>
+								<ul>						
+									<li><a href="listarPedido.php" title="Listar Pedidos">Listar Pedidos</a></li>
+								</ul>						
+							</dd>
+						</dl>
+					
+					</div>
+
+
+<div id="rodape">
+	<h1> Todos os direitos reservados à Livraria do Tux </h1>
+</div>
+</div>
+Array
+
+</body>
+</html>

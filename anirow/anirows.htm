@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> 
+<head> 
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+	<title>Add new table rows with jQuery</title> 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+    <script src="scripts/jquery.anirows.js" type="text/javascript"></script>
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+
+</head> 
+<body> 
+<!--
+This first example allows you to add rows and delete rows from the top of the table
+-->
+Add/Remove - Bottom Row<br />
+		<button id="addRowDemo1">Add a row</button> 
+        <button id="removeRowDemo1">Remove a row</button> 
+<table id="Demo1" class="rounded-corner"  summary="Anirows Demo 1">
+    <thead>
+    	<tr>
+        	<th scope="col" class="rounded-company">Company</th>
+            <th scope="col" class="rounded-q1">Q1</th>
+            <th scope="col" class="rounded-q2">Q2</th>
+            <th scope="col" class="rounded-q3">Q3</th>
+            <th scope="col" class="rounded-q4">Q4</th>
+        </tr>
+    </thead>
+        <tfoot>
+    	<tr>
+        	<td colspan="4" class="rounded-foot-left" style="border-right: 0px solid #fff;"><em>This is the footer, notice the plugin skips over it.</em></td>
+        	<td class="rounded-foot-right">&nbsp;</td>
+        </tr>
+    </tfoot>
+    <tbody>
+    	<tr>
+        	<td>Inatech</td>
+            <td>20.3</td>
+            <td>30.5</td>
+            <td>23.5</td>
+            <td>40.3</td>
+        </tr>
+        <tr>
+        	<td>CyberCyst</td>
+            <td>50.2</td>
+            <td>40.63</td>
+            <td>45.23</td>
+            <td>39.3</td>
+        </tr>
+        <tr>
+        	<td>GlobalGlom</td>
+            <td>25.4</td>
+            <td>30.2</td>
+            <td>33.3</td>
+            <td>36.7</td>
+        </tr>
+        <tr>
+        	<td>MegaSoft</td>
+            <td>20.4</td>
+            <td>15.6</td>
+            <td>22.3</td>
+            <td>29.3</td>
+        </tr>
+    </tbody>
+</table>
+<!--
+Same thing here except now from bottom, this can be add from top remove from bottom, whatever you like.
+-->
+Add/Remove - Top Row<br />
+		<button id="addRowDemo2">Add a row</button> 
+        <button id="removeRowDemo2">Remove a row</button> 
+<table id="Demo2" class="rounded-corner"  summary="Anirows Demo 2">
+    <thead>
+    	<tr>
+        	<th scope="col" class="rounded-company">Company</th>
+            <th scope="col" class="rounded-q1">Q1</th>
+            <th scope="col" class="rounded-q2">Q2</th>
+            <th scope="col" class="rounded-q3">Q3</th>
+            <th scope="col" class="rounded-q4">Q4</th>
+        </tr>
+    </thead>
+        <tfoot>
+    	<tr>
+        	<td colspan="4" class="rounded-foot-left" style="border-right: 0px solid #fff;"><em>This is the footer, notice the plugin skips over it.</em></td>
+        	<td class="rounded-foot-right">&nbsp;</td>
+        </tr>
+    </tfoot>
+    <tbody>
+    	<tr>
+        	<td>Inatech</td>
+            <td>20.3</td>
+            <td>30.5</td>
+            <td>23.5</td>
+            <td>40.3</td>
+        </tr>
+        <tr>
+        	<td>CyberCyst</td>
+            <td>50.2</td>
+            <td>40.63</td>
+            <td>45.23</td>
+            <td>39.3</td>
+        </tr>
+        <tr>
+        	<td>GlobalGlom</td>
+            <td>25.4</td>
+            <td>30.2</td>
+            <td>33.3</td>
+            <td>36.7</td>
+        </tr>
+        <tr>
+        	<td>MegaSoft</td>
+            <td>20.4</td>
+            <td>15.6</td>
+            <td>22.3</td>
+            <td>29.3</td>
+        </tr>
+    </tbody>
+</table>
+<!--
+This demo adds and removes rows that have controls in them...this could be asp.net controls or whatever you wante.
+-->
+Add row using row with controls<br />
+
+		<button id="addRowDemo3">Add a row</button> 
+        <button id="removeRowDemo3">Remove a row</button> 
+<table id="Demo3" class="rounded-corner"  summary="Anirows Demo 1">
+    <thead>
+    	<tr>
+        	<th scope="col" class="rounded-company">Company</th>
+            <th scope="col" class="rounded-q1">Q1</th>
+            <th scope="col" class="rounded-q2">Q2</th>
+            <th scope="col" class="rounded-q3">Q3</th>
+            <th scope="col" class="rounded-q4">Q4</th>
+        </tr>
+    </thead>
+        <tfoot>
+    	<tr>
+        	<td colspan="4" class="rounded-foot-left" style="border-right: 0px solid #fff;"><em>This is the footer, notice the plugin skips over it.</em></td>
+        	<td class="rounded-foot-right">&nbsp;</td>
+        </tr>
+    </tfoot>
+    <tbody>
+    	<tr>
+        	<td>Inatech</td>
+            <td>20.3</td>
+            <td>30.5</td>
+            <td>23.5</td>
+            <td>40.3</td>
+        </tr>
+        <tr>
+        	<td>CyberCyst</td>
+            <td>50.2</td>
+            <td>40.63</td>
+            <td>45.23</td>
+            <td>39.3</td>
+        </tr>
+        <tr>
+        	<td>GlobalGlom</td>
+            <td>25.4</td>
+            <td>30.2</td>
+            <td>33.3</td>
+            <td>36.7</td>
+        </tr>
+        <tr id = "newRow">
+        	<td>MegaSoft</td>
+            <td>20.4</td>
+            <td>15.6</td>
+            <td>22.3</td>
+            <td>29.3</td>
+        </tr>
+    </tbody>
+</table>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#addRowDemo1").click(function () {
+                $("#Demo1").addRow({
+                    newRow: "<tr><td>Scubysoft</td><td>30.3</td><td>40.5</td><td>63.5</td><td>42.3</td></tr>"
+                });
+                $('#Demo1 tr td:not(:last-child)').addClass("rounded");
+            });
+            $("#removeRowDemo1").click(function () {
+                $("#Demo1").removeRow({});
+            });
+
+            $("#addRowDemo2").click(function () {
+                $("#Demo2").addRow({
+                    newRow: "<tr><td>Scubysoft</td><td>30.3</td><td>40.5</td><td>63.5</td><td>42.3</td></tr>",
+                    addTop: false,
+                    removeTop: false
+                });
+                $('#Demo2 tr td:not(:last-child)').addClass("rounded");
+            });
+            $("#removeRowDemo2").click(function () {
+                $("#Demo2").removeRow({});
+            });
+
+            $("#addRowDemo3").click(function () {
+                $("#Demo3").addRow({
+                    newRow: "<tr><td><input type=\"button\" value=\"button\" /></td><td><input type=\"text\" /></td><td><input type=\"text\" /></td><td><img src=\"styles/table-images/check.gif\"  /></td><td><input type=\"checkbox\" /></td></tr>",
+                    addTop: false,
+                    removeTop: false
+                });
+                $('#Demo3 tr td:not(:last-child)').addClass("rounded");
+            });
+            $("#removeRowDemo3").click(function () {
+                $("#Demo3").removeRow({});
+            });
+
+            $('#Demo1 tr td:not(:last-child)').addClass("rounded");
+            $('#Demo2 tr td:not(:last-child)').addClass("rounded");
+            $('#Demo3 tr td:not(:last-child)').addClass("rounded");
+        });
+    </script>
+</body> 
+</html>

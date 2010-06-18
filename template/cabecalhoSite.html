@@ -1,9 +1,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css"  href="../css/style.css" />
-	<script src="../js/jquery.js"></script>
+
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/jquery.expander.js"></script>
+	<script type="text/javascript" src="../js/jquery.dataTables.js"></script>
+	 
+	 <script type="text/javascript">
+$(document).ready(function() {
+
+  // simple example, using all default options
+ // $('td.expandable').expander();
+  
+  // *** OR ***
+  
+  // override some default options
+  $('td.expandable').expander({
+    slicePoint:       80,  // default is 100
+    expandText:         '', // default is 'read more...'
+    collapseTimer:    0, // re-collapses after 5 seconds; default is 0, so no re-collapsing
+    userCollapseText: ''  // default is '[collapse expanded text]'
+  });
+  
+});
+</script>
+
+	 
+	 
+	 
+  <script> 
+	   $(document).ready(function() {
+			$('#example').dataTable( {
+				"aaSorting": [[ 1, "asc" ]],	
+				"bJQueryUI": true,
+				"sPaginationType": "full_numbers"
+			} );
+		} );
+    </script> 
+	
 	<script>
 	$(document).ready(function(){
 		$("dd:not(:first)").hide();
@@ -15,6 +52,9 @@
 	
 	});
 	</script>
+
+
+
 
 
 
@@ -40,8 +80,8 @@
 			</div>
 		
 			<h1> Livraria do tux </h1>
-			<div style="clear:both"></div>
+		
 		
 		</div>
 
-
+	<div id="pagina-body">
